@@ -6,6 +6,7 @@
     <title>PetLife - Q&A・お悩み相談</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="img/ファビコン.png" type="image/x-icon">
     <style>
         :root {
             --primary-color: #10b981;
@@ -273,7 +274,7 @@
     <!-- ナビゲーションバー -->
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="index.html">
                 <i class="bi bi-heart-fill text-danger"></i> PetLife
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -282,22 +283,22 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">ホーム</a>
+                        <a class="nav-link" href="index.html">ホーム</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">ペット図鑑</a>
+                        <a class="nav-link" href="pet-guide-list.html">ペット図鑑</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">飼い方ガイド</a>
+                        <a class="nav-link" href="pet-care-guide.html">飼い方ガイド</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="#">Q&A</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">飼育記録</a>
+                        <a class="nav-link" href="pet-guide-record.html">飼育記録</a>
                     </li>
                 </ul>
-                <button class="btn btn-outline-success ms-3 rounded-pill fw-bold">
+                <button class="btn btn-outline-success ms-3 rounded-pill fw-bold" id="auth-btn">
                     <i class="bi bi-person-circle"></i> ログイン
                 </button>
             </div>
@@ -305,7 +306,7 @@
     </nav>
 
     <!-- ページヘッダー -->
-    <div class="page-header">
+     <div class="page-header">
         <div class="container">
             <div class="text-center mb-4">
                 <h1 class="display-4 fw-bold" style="color: var(--brown-color);">
@@ -315,28 +316,19 @@
                     ペットに関する疑問や悩みを解決しましょう
                 </p>
             </div>
-            
-            <!-- 検索ボックス -->
+
             <div class="search-box">
                 <div class="d-flex align-items-center">
-                    <input type="text" class="flex-grow-1" placeholder="質問を検索...（例：犬のしつけ、猫の健康）">
-                    <button type="button">
-                        <i class="bi bi-search"></i> 検索
-                    </button>
+                    <input type="text" class="flex-grow-1" placeholder="質問を検索...（例：猫のしつけ、猫の健康）">
+                    <button type="button"><i class="bi bi-search"></i> 検索</button>
                 </div>
             </div>
-            
+
             <div class="text-center mt-4">
                 <div class="d-flex justify-content-center gap-3 flex-wrap">
-                    <span class="stats-badge">
-                        <i class="bi bi-chat-left-text"></i> 3,245件の質問
-                    </span>
-                    <span class="stats-badge">
-                        <i class="bi bi-people"></i> 12,890人の回答者
-                    </span>
-                    <span class="stats-badge">
-                        <i class="bi bi-check-circle"></i> 解決率 94%
-                    </span>
+                    <span class="stats-badge"><i class="bi bi-chat-left-text"></i> 3,245件の質問</span>
+                    <span class="stats-badge"><i class="bi bi-people"></i> 12,890人の回答者</span>
+                    <span class="stats-badge"><i class="bi bi-check-circle"></i> 解決率 94%</span>
                 </div>
             </div>
         </div>
@@ -344,267 +336,210 @@
 
     <div class="container">
         <div class="row">
-            <!-- メインコンテンツ -->
-            <div class="col-lg-8">
-                <!-- カテゴリータブ -->
-                <div class="category-tabs">
-                    <ul class="nav nav-pills justify-content-center flex-wrap" id="categoryTabs" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="all-tab" data-bs-toggle="pill" data-bs-target="#all" type="button" role="tab">
-                                <i class="bi bi-grid"></i> すべて
-                            </button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="dog-tab" data-bs-toggle="pill" data-bs-target="#dog" type="button" role="tab">
-                                <i class="bi bi-emoji-smile"></i> 犬
-                            </button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="cat-tab" data-bs-toggle="pill" data-bs-target="#cat" type="button" role="tab">
-                                <i class="bi bi-emoji-heart-eyes"></i> 猫
-                            </button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="health-tab" data-bs-toggle="pill" data-bs-target="#health" type="button" role="tab">
-                                <i class="bi bi-heart-pulse"></i> 健康
-                            </button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="training-tab" data-bs-toggle="pill" data-bs-target="#training" type="button" role="tab">
-                                <i class="bi bi-mortarboard"></i> しつけ
-                            </button>
-                        </li>
+        <div class="col-lg-8">
+            <div class="category-tabs">
+                <ul class="nav nav-pills justify-content-center flex-wrap" id="categoryTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#all" type="button"
+                            role="tab">
+                            <i class="bi bi-grid"></i> すべて
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#dog" type="button"
+                            role="tab">
+                            <i class="bi bi-emoji-smile"></i> 猫の行動
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#cat" type="button"
+                            role="tab">
+                            <i class="bi bi-emoji-heart-eyes"></i> 猫の食事
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#health" type="button"
+                            role="tab">
+                            <i class="bi bi-heart-pulse"></i> 健康
+                        </button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="all" role="tabpanel">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq1">
+                                    <i class="bi bi-question-circle-fill text-primary me-2"></i>
+                                    猫の夜中の鳴き声に困っています
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <div class="mb-3">
+                                        <span class="badge-category">猫の行動</span>
+                                        <span class="badge-category" style="background: #8b5cf6;">しつけ</span>
+                                    </div>
+                                    <div class="answer-highlight">
+                                        <h6 class="fw-bold text-success mb-2">
+                                            <i class="bi bi-check-circle-fill"></i> ベストアンサー
+                                        </h6>
+                                        <p>夜中に鳴くのは要求や運動不足が原因かもしれません。寝る前の遊びでエネルギーを発散させましょう。</p>
+                                    </div>
+                                    <div class="question-meta">
+                                        <div class="meta-item">
+                                            <i class="bi bi-person-circle"></i><span>キャットシッター田中</span>
+                                        </div>
+                                        <div class="meta-item">
+                                            <i class="bi bi-hand-thumbs-up"></i><span>450人が参考になった</span>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3">
+                                        <button class="helpful-btn">
+                                            <i class="bi bi-hand-thumbs-up"></i> 参考になった
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq2">
+                                    <i class="bi bi-question-circle-fill text-primary me-2"></i>
+                                    猫が急に水をたくさん飲むようになりました
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <div class="mb-3">
+                                        <span class="badge-category" style="background: #fb923c;">猫の健康</span>
+                                        <span class="badge-category" style="background: #ef4444;">健康</span>
+                                    </div>
+                                    <div class="answer-highlight">
+                                        <h6 class="fw-bold text-success mb-2">
+                                            <i class="bi bi-check-circle-fill"></i> ベストアンサー
+                                        </h6>
+                                        <p>多飲多尿は腎臓病などのサインの可能性があります。早めに動物病院を受診してください。</p>
+                                    </div>
+                                    <div class="question-meta">
+                                        <div class="meta-item">
+                                            <i class="bi bi-person-circle"></i><span>獣医師・佐藤</span>
+                                        </div>
+                                        <div class="meta-item">
+                                            <i class="bi bi-hand-thumbs-up"></i><span>620人が参考になった</span>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3">
+                                        <button class="helpful-btn">
+                                            <i class="bi bi-hand-thumbs-up"></i> 参考になった
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="sidebar-card">
+                <button class="btn btn-post-question">
+                    <i class="bi bi-plus-circle"></i> 質問を投稿する
+                </button>
+            </div>
+
+            <div class="sidebar-card">
+                <h5 class="fw-bold mb-4" style="color: var(--brown-color);">
+                    <i class="bi bi-trophy-fill text-warning"></i> 人気の質問
+                </h5>
+                <div class="ranking-item">
+                    <div class="ranking-number gold">1</div>
+                    <div>
+                        <h6 class="fw-bold mb-1 small">猫のフードの切り替え方</h6>
+                        <small class="text-muted">712人が参考にしました</small>
+                    </div>
+                </div>
+                <div class="ranking-item">
+                    <div class="ranking-number silver">2</div>
+                    <div>
+                        <h6 class="fw-bold mb-1 small">猫の去勢・避妊手術の最適な時期</h6>
+                        <small class="text-muted">680人が参考にしました</small>
+                    </div>
+                </div>
+                <div class="ranking-item">
+                    <div class="ranking-number bronze">3</div>
+                    <div>
+                        <h6 class="fw-bold mb-1 small">猫が食べてはいけない食べ物</h6>
+                        <small class="text-muted">550人が参考にしました</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3">
+                        <i class="bi bi-heart-fill text-danger"></i> PetLife
+                    </h5>
+                    <p>ペットとの幸せな暮らしを応援する情報サイト</p>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h6 class="fw-bold mb-3">サイト情報</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none">About</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">利用規約</a></li>
                     </ul>
                 </div>
+                <div class="col-md-2 mb-4">
+                    <h6 class="fw-bold mb-3">サポート</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none">ヘルプ</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h6 class="fw-bold mb-3">フォローする</h6>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white fs-4"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-white fs-4"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-white fs-4"><i class="bi bi-youtube"></i></a>
+                        <a href="#" class="text-white fs-4"><i class="bi bi-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-light">
+            <p class="text-center mb-0">&copy; 2024 PetLife. All rights reserved.</p>
+        </div>
+    </footer>
 
-                <!-- タブコンテンツ -->
-                <div class="tab-content" id="categoryTabsContent">
-                    <div class="tab-pane fade show active" id="all" role="tabpanel">
-                        <!-- アコーディオン -->
-                        <div class="accordion" id="faqAccordion">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                                        <i class="bi bi-question-circle-fill text-primary me-2"></i>
-                                        子犬のトイレトレーニングがうまくいきません。どうすればいいですか?
-                                    </button>
-                                </h2>
-                                <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                                    <div class="accordion-body">
-                                        <div class="mb-3">
-                                            <span class="badge-category">犬</span>
-                                            <span class="badge-category" style="background: #8b5cf6;">しつけ</span>
-                                        </div>
-                                        
-                                        <p class="mb-3"><strong>質問詳細:</strong><br>
-                                        生後3ヶ月の柴犬を飼い始めました。トイレシートでおしっこをしてくれず、カーペットや床で粗相をしてしまいます。どのようにトレーニングすれば良いでしょうか?</p>
-                                        
-                                        <div class="answer-highlight">
-                                            <h6 class="fw-bold text-success mb-2">
-                                                <i class="bi bi-check-circle-fill"></i> ベストアンサー
-                                            </h6>
-                                            <p><strong>回答:</strong><br>
-                                            子犬のトイレトレーニングは根気が必要です。以下のポイントを試してみてください:</p>
-                                            <ol>
-                                                <li><strong>タイミングを覚える:</strong> 起床後、食後、遊んだ後はトイレのサイン</li>
-                                                <li><strong>成功したら褒める:</strong> シートで排泄できたら大げさに褒めておやつを</li>
-                                                <li><strong>失敗しても叱らない:</strong> 叱ると隠れて排泄するようになります</li>
-                                                <li><strong>臭いを利用:</strong> シートに以前のおしっこの臭いを少し残しておく</li>
-                                                <li><strong>環境を整える:</strong> トイレスペースは静かで落ち着ける場所に</li>
-                                            </ol>
-                                            <p class="mb-0">通常、1〜2週間で改善が見られますが、個体差があります。焦らず続けてくださいね!</p>
-                                        </div>
-                                        
-                                        <div class="question-meta">
-                                            <div class="meta-item">
-                                                <i class="bi bi-person-circle"></i>
-                                                <span>ドッグトレーナー山田</span>
-                                            </div>
-                                            <div class="meta-item">
-                                                <i class="bi bi-calendar3"></i>
-                                                <span>2024年11月15日</span>
-                                            </div>
-                                            <div class="meta-item">
-                                                <i class="bi bi-hand-thumbs-up"></i>
-                                                <span>312人が参考になった</span>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="mt-3">
-                                            <button class="helpful-btn">
-                                                <i class="bi bi-hand-thumbs-up"></i> 参考になった
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.querySelectorAll('.helpful-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                if (this.innerHTML.includes('参考になった')) {
+                    this.innerHTML = '<i class="bi bi-hand-thumbs-up-fill"></i> 参考になりました';
+                    this.style.background = 'var(--primary-color)';
+                    this.style.color = 'white';
+                } else {
+                    this.innerHTML = '<i class="bi bi-hand-thumbs-up"></i> 参考になった';
+                    this.style.background = 'transparent';
+                    this.style.color = 'var(--primary-color)';
+                }
+            });
+        });
+    </script>
+    <script src="./login.js"></script>
 
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                                        <i class="bi bi-question-circle-fill text-primary me-2"></i>
-                                        猫が急にご飯を食べなくなりました。病院に行くべきでしょうか?
-                                    </button>
-                                </h2>
-                                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                    <div class="accordion-body">
-                                        <div class="mb-3">
-                                            <span class="badge-category" style="background: #fb923c;">猫</span>
-                                            <span class="badge-category" style="background: #ef4444;">健康</span>
-                                        </div>
-                                        
-                                        <p class="mb-3"><strong>質問詳細:</strong><br>
-                                        5歳のアメリカンショートヘアです。昨日から急にご飯を食べなくなり、元気もありません。水は少し飲んでいます。すぐに病院に連れて行くべきでしょうか?</p>
-                                        
-                                        <div class="answer-highlight">
-                                            <h6 class="fw-bold text-success mb-2">
-                                                <i class="bi bi-check-circle-fill"></i> ベストアンサー
-                                            </h6>
-                                            <p><strong>回答:</strong><br>
-                                            猫が24時間以上食事を取らない場合、特に元気がない様子であれば、できるだけ早く動物病院を受診することをお勧めします。</p>
-                                            
-                                            <p><strong>注意すべきサイン:</strong></p>
-                                            <ul>
-                                                <li>ぐったりしている</li>
-                                                <li>嘔吐や下痢がある</li>
-                                                <li>呼吸が荒い</li>
-                                                <li>歯茎の色が白っぽい</li>
-                                                <li>体温が高い、または低い</li>
-                                            </ul>
-                                            
-                                            <p><strong>考えられる原因:</strong></p>
-                                            <ul>
-                                                <li>胃腸のトラブル</li>
-                                                <li>口内炎や歯の痛み</li>
-                                                <li>腎臓の問題</li>
-                                                <li>ストレスや環境の変化</li>
-                                            </ul>
-                                            
-                                            <p class="mb-0 text-danger"><strong>重要:</strong> 猫は痛みを隠す動物です。食欲不振が続く場合は早めの受診が大切です。特に高齢猫や持病のある猫は注意が必要です。</p>
-                                        </div>
-                                        
-                                        <div class="question-meta">
-                                            <div class="meta-item">
-                                                <i class="bi bi-person-circle"></i>
-                                                <span>獣医師・佐藤</span>
-                                            </div>
-                                            <div class="meta-item">
-                                                <i class="bi bi-calendar3"></i>
-                                                <span>2024年11月18日</span>
-                                            </div>
-                                            <div class="meta-item">
-                                                <i class="bi bi-hand-thumbs-up"></i>
-                                                <span>487人が参考になった</span>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="mt-3">
-                                            <button class="helpful-btn">
-                                                <i class="bi bi-hand-thumbs-up"></i> 参考になった
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+</body>
 
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-                                        <i class="bi bi-question-circle-fill text-primary me-2"></i>
-                                        ハムスターの適切な飼育温度は何度ですか?
-                                    </button>
-                                </h2>
-                                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                    <div class="accordion-body">
-                                        <div class="mb-3">
-                                            <span class="badge-category" style="background: #06b6d4;">小動物</span>
-                                            <span class="badge-category" style="background: #10b981;">飼育環境</span>
-                                        </div>
-                                        
-                                        <p class="mb-3"><strong>質問詳細:</strong><br>
-                                        ゴールデンハムスターを飼っています。冬が近づいてきたので、ケージの温度管理について教えてください。</p>
-                                        
-                                        <div class="answer-highlight">
-                                            <h6 class="fw-bold text-success mb-2">
-                                                <i class="bi bi-check-circle-fill"></i> ベストアンサー
-                                            </h6>
-                                            <p><strong>回答:</strong><br>
-                                            ハムスターの適切な飼育温度は<strong>20〜26度</strong>が理想的です。</p>
-                                            
-                                            <p><strong>温度管理のポイント:</strong></p>
-                                            <ul>
-                                                <li><strong>冬場:</strong> 15度以下になると疑似冬眠のリスクがあります</li>
-                                                <li><strong>夏場:</strong> 28度以上は熱中症の危険性があります</li>
-                                                <li><strong>温度計設置:</strong> ケージ内に温度計を設置して常にチェック</li>
-                                                <li><strong>暖房器具:</strong> ペット用ヒーターやエアコンで調整</li>
-                                                <li><strong>直射日光:</strong> ケージに直射日光が当たらない場所に設置</li>
-                                            </ul>
-                                            
-                                            <p><strong>冬の注意点:</strong></p>
-                                            <ul>
-                                                <li>急激な温度変化を避ける</li>
-                                                <li>床材を多めに入れる</li>
-                                                <li>巣箱に布を入れてあげる</li>
-                                                <li>ケージをダンボールで囲むのも効果的</li>
-                                            </ul>
-                                            
-                                            <p class="mb-0">温度管理はハムスターの健康維持に非常に重要です。特に冬場は注意深く観察してあげてくださいね!</p>
-                                        </div>
-                                        
-                                        <div class="question-meta">
-                                            <div class="meta-item">
-                                                <i class="bi bi-person-circle"></i>
-                                                <span>ハムスター専門店スタッフ</span>
-                                            </div>
-                                            <div class="meta-item">
-                                                <i class="bi bi-calendar3"></i>
-                                                <span>2024年11月10日</span>
-                                            </div>
-                                            <div class="meta-item">
-                                                <i class="bi bi-hand-thumbs-up"></i>
-                                                <span>234人が参考になった</span>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="mt-3">
-                                            <button class="helpful-btn">
-                                                <i class="bi bi-hand-thumbs-up"></i> 参考になった
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
-                                        <i class="bi bi-question-circle-fill text-primary me-2"></i>
-                                        犬の散歩は1日何回、何分くらい必要ですか?
-                                    </button>
-                                </h2>
-                                <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                    <div class="accordion-body">
-                                        <div class="mb-3">
-                                            <span class="badge-category">犬</span>
-                                            <span class="badge-category" style="background: #10b981;">飼育環境</span>
-                                        </div>
-                                        
-                                        <p class="mb-3"><strong>質問詳細:</strong><br>
-                                        ミニチュアダックスフンドを飼っています。散歩の適切な回数と時間について教えてください。</p>
-                                        
-                                        <div class="answer-highlight">
-                                            <h6 class="fw-bold text-success mb-2">
-                                                <i class="bi bi-check-circle-fill"></i> ベストアンサー
-                                            </h6>
-                                            <p><strong>回答:</strong><br>
-                                            犬の散歩は犬種、年齢、健康状態によって異なりますが、一般的な目安をご紹介します。</p>
-                                            
-                                            <p><strong>小型犬（ミニチュアダックスフンド等）:</strong></p>
-                                            <ul>
-                                                <li>回数: 1日2回</li>
-                                                <li>時間: 1回20〜30分程度</li>
-                                                <li>距離: 約1〜2km</li>
-                                            </ul>
-                                            
-                                            <p><strong>中型犬:</strong></p>
-                                            
+</html>

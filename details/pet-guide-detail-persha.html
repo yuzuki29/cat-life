@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>スコティッシュフォールド - CatLife</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="img/ファビコン.png" type="image/x-icon">
+    <style>
+        :root {
+            --primary-color: #10b981;
+            --secondary-color: #f59e0b;
+            --brown-color: #78350f;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fef3c7;
+        }
+        
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: bold;
+            color: var(--primary-color) !important;
+            font-size: 1.5rem;
+        }
+        
+        .carousel-item img {
+            height: 450px;
+            object-fit: cover;
+            border-radius: 30px;
+        }
+        
+        .pet-header {
+            background: white;
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin: -80px 0 30px 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .info-card {
+            background: white;
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
+        
+        .accordion-button:not(.collapsed) {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+        
+        .accordion-button {
+            border-radius: 20px !important;
+            font-weight: bold;
+        }
+        
+        .stat-badge {
+            background: #dcfce7;
+            color: var(--primary-color);
+            padding: 15px 25px;
+            border-radius: 20px;
+            text-align: center;
+        }
+        
+        .sidebar-card {
+            background: white;
+            border-radius: 25px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        footer {
+            background-color: var(--brown-color);
+            color: white;
+            padding: 40px 0;
+            margin-top: 80px;
+            border-radius: 50px 50px 0 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html"><i class="bi bi-heart-fill text-danger"></i> CatLife</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">ホーム</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="../pet-guide-list.html">ペット図鑑</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../pet-care-guide.html">飼い方ガイド</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../pet-guide-qa.html">Q&A</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../pet-guide-record.html">飼育記録</a></li>
+                </ul>
+                <button class="btn btn-outline-success ms-3 rounded-pill fw-bold" id="auth-btn">
+                    <i class="bi bi-person-circle"></i> ログイン
+                </button>
+            </div>
+        </div>
+    </nav>
+
+<div class="container mt-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../index.html">ホーム</a></li>
+            <li class="breadcrumb-item"><a href="../pet-guide-list.html">ペット図鑑</a></li>
+            <li class="breadcrumb-item active">ペルシャ</li>
+        </ol>
+    </nav>
+
+    <div id="petCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#petCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#petCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#petCarousel" data-bs-slide-to="2"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://placehold.co/1200x450/991b1f/ffffff?text=Persian+Cat+1" class="d-block w-100" alt="ペルシャ1">
+            </div>
+            <div class="carousel-item">
+                <img src="https://placehold.co/1200x450/450a0a/ffffff?text=Persian+Cat+2" class="d-block w-100" alt="ペルシャ2">
+            </div>
+            <div class="carousel-item">
+                <img src="https://placehold.co/1200x450/7f1d1d/ffffff?text=Persian+Cat+3" class="d-block w-100" alt="ペルシャ3">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#petCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#petCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+
+    <div class="pet-header">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <span class="badge" style="background: #fee2e2; color: #ef4444; padding: 10px 20px; border-radius: 50px; font-size: 1rem;">中級者向け</span>
+                <h1 class="display-4 fw-bold mt-3 mb-3" style="color: var(--brown-color);">ペルシャ</h1>
+                <p class="lead text-muted">「猫の王様」。豪華な長毛と優雅な雰囲気が特徴の、非常に穏やかな愛玩猫</p>
+            </div>
+            <div class="col-md-4 text-md-end">
+                <button class="btn btn-success btn-lg rounded-pill mb-2 w-100"><i class="bi bi-heart"></i> お気に入り</button>
+                <button class="btn btn-outline-warning btn-lg rounded-pill w-100"><i class="bi bi-share"></i> シェア</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="info-card">
+                <h3 class="fw-bold mb-4" style="color: var(--brown-color);"><i class="bi bi-info-circle-fill text-success"></i> 基本情報</h3>
+                <div class="row g-3 mb-4">
+                    <div class="col-md-3"><div class="stat-badge"><strong>サイズ</strong><br>中〜大型</div></div>
+                    <div class="col-md-3"><div class="stat-badge"><strong>体重</strong><br>3-5.5kg</div></div>
+                    <div class="col-md-3"><div class="stat-badge"><strong>寿命</strong><br>14-17年</div></div>
+                    <div class="col-md-3"><div class="stat-badge"><strong>原産地</strong><br>イラン（ペルシャ）</div></div>
+                </div>
+                <p>
+                    ペルシャ猫は、その豪華な長毛と短く平らな鼻を持つ顔立ちで「猫の王様」として世界中で愛されています。
+                    非常に穏やかで、ほとんど鳴くことがなく、おとなしい性格です。手入れには手間がかかりますが、その優雅な姿は多くの人を魅了します。
+                </p>
+            </div>
+
+            <div class="accordion mb-4" id="petAccordion">
+                <div class="accordion-item mb-3" style="border: none; border-radius: 20px;">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#character">
+                            <i class="bi bi-heart me-2"></i> 性格・特徴
+                        </button>
+                    </h2>
+                    <div id="character" class="accordion-collapse collapse show" data-bs-parent="#petAccordion">
+                        <div class="accordion-body">
+                            <h5 class="fw-bold mb-3">性格</h5>
+                            <ul>
+                                <li><strong>非常に穏やか : </strong>ほとんど鳴かず、物静かで落ち着いている</li>
+                                <li>**愛玩猫の鏡 : ** 飼い主のそばでくつろぐのを好む</li>
+                                <li>**マイペース : ** 活発な遊びより、寝て過ごすことが多い</li>
+                                <li>**協調性 : ** 他のペットや子供とも比較的仲良くできる</li>
+                            </ul>
+                            <h5 class="fw-bold mb-3 mt-4">身体的特徴</h5>
+                            <ul>
+                                <li>短く太い手足、ずんぐりとした**コビータイプ**の体型</li>
+                                <li>**豪華で絹のような超長毛**（ダブルコート）が全身を覆う</li>
+                                <li>鼻が低く平たい**ピークフェイス**が特徴（一部の系統を除く）</li>
+                                <li>涙やけが起こりやすい短頭種</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item mb-3" style="border: none; border-radius: 20px;">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#care">
+                            <i class="bi bi-clipboard-heart me-2"></i> 飼い方・ケア
+                        </button>
+                    </h2>
+                    <div id="care" class="accordion-collapse collapse" data-bs-parent="#petAccordion">
+                        <div class="accordion-body">
+                            <h5 class="fw-bold mb-3">日常のケア</h5>
+                            <ul>
+                                <li>**運動 : ** 激しい運動は不要。低いキャットタワーや寝床を用意</li>
+                                <li>**ブラッシング : ** **毎日**欠かさず行う。怠ると毛玉になり皮膚炎の原因に</li>
+                                <li>**顔の手入れ : ** 涙やけを防ぐため、**毎日目の周りを拭く**</li>
+                                <li>**室温管理 : ** 長毛と短頭種であるため、夏の**冷房による温度管理**が必須</li>
+                            </ul>
+                            <h5 class="fw-bold mb-3 mt-4">食事</h5>
+                            <ul>
+                                <li>肥満を防ぐための**適切なカロリー管理**が重要</li>
+                                <li>平たい顔でも食べやすいように、**キブル（粒）の形や大きさに配慮**されたフードが推奨</li>
+                                <li>長毛種のため、**毛玉ケア**用のフードを併用する</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item mb-3" style="border: none; border-radius: 20px;">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#health">
+                            <i class="bi bi-heart-pulse me-2"></i> 健康管理
+                        </button>
+                    </h2>
+                    <div id="health" class="accordion-collapse collapse" data-bs-parent="#petAccordion">
+                        <div class="accordion-body">
+                            <h5 class="fw-bold mb-3">かかりやすい病気</h5>
+                            <ul>
+                                <li>**多発性嚢胞腎 (PKD) : ** 遺伝性疾患。腎臓に嚢胞ができる</li>
+                                <li>**肥大性心筋症 (HCM) : ** 遺伝的要因が高い心臓病</li>
+                                <li>**毛球症 : ** 長毛のため、毛づくろいによる毛の飲み込みが多い</li>
+                                <li>**流涙症・皮膚炎 : ** 短頭種特有の涙やけや顔周りの皮膚トラブル</li>
+                            </ul>
+                            <h5 class="fw-bold mb-3 mt-4">予防と対策</h5>
+                            <ul>
+                                <li>**毎日のブラッシング**と**毛玉ケアフード**の徹底</li>
+                                <li>遺伝性疾患（PKD/HCM）の**定期的な検査**（特にエコー検査）</li>
+                                <li>目の周りの**清潔を保つ**（涙やけ対策）</li>
+                                <li>適切な**体重管理**で心臓への負担を減らす</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item" style="border: none; border-radius: 20px;">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#training">
+                            <i class="bi bi-award me-2"></i> しつけ
+                        </button>
+                    </h2>
+                    <div id="training" class="accordion-collapse collapse" data-bs-parent="#petAccordion">
+                        <div class="accordion-body">
+                            <h5 class="fw-bold mb-3">しつけのポイント</h5>
+                            <ul>
+                                <li>**落ち着いた性格**で、しつけは容易な部類</li>
+                                <li>**トイレ**や**爪とぎ**は基本的にすぐに覚える</li>
+                                <li>**長毛ケア**をスムーズにするため、子猫期からの**スキンシップ**と**ブラッシングの練習**が最も重要</li>
+                            </ul>
+                            <h5 class="fw-bold mb-3 mt-4">基本的なしつけ</h5>
+                            <ul>
+                                <li>**穏やかな環境**で、過度な刺激を与えないようにする</li>
+                                <li>**ブラッシング**や**シャンプー**を嫌がらないように、**褒めながら**行う</li>
+                                <li>飼い主の**根気強い手入れ**と**愛情**が信頼関係を築く鍵となる</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div style="background: white; border-radius: 25px; padding: 25px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08); margin-bottom: 20px;">
+                <h5 class="fw-bold mb-4" style="color: var(--brown-color);"><i class="bi bi-star-fill text-warning"></i> 飼いやすさ評価</h5>
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between mb-2"><span>初心者向け</span><strong>★★★☆☆</strong></div>
+                    <div class="progress" style="height: 10px; border-radius: 10px;">
+                        <div class="progress-bar" style="width: 60%; background: var(--primary-color);"></div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between mb-2"><span>お手入れ</span><strong>★★★★★</strong></div>
+                    <div class="progress" style="height: 10px; border-radius: 10px;">
+                        <div class="progress-bar" style="width: 100%; background: var(--secondary-color);"></div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between mb-2"><span>しつけやすさ</span><strong>★★★★☆</strong></div>
+                    <div class="progress" style="height: 10px; border-radius: 10px;">
+                        <div class="progress-bar" style="width: 80%; background: var(--primary-color);"></div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between mb-2"><span>運動量</span><strong>★☆☆☆☆</strong></div>
+                    <div class="progress" style="height: 10px; border-radius: 10px;">
+                        <div class="progress-bar" style="width: 20%; background: var(--secondary-color);"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: white; border-radius: 25px; padding: 25px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08); margin-bottom: 20px;">
+                <h5 class="fw-bold mb-4" style="color: var(--brown-color);"><i class="bi bi-cash-coin"></i> 飼育費用の目安</h5>
+                <div class="mb-2 d-flex justify-content-between"><span>初期費用</span><strong>25万〜50万円</strong></div>
+                <div class="mb-2 d-flex justify-content-between"><span>月額費用</span><strong>8,000〜15,000円</strong></div>
+                <div class="mb-2 d-flex justify-content-between"><span>年間医療費</span><strong>5万〜15万円</strong></div>
+            </div>
+
+            <div style="background: white; border-radius: 25px; padding: 25px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08); margin-bottom: 20px;">
+                <h5 class="fw-bold mb-3" style="color: var(--brown-color);"><i class="bi bi-tags"></i> タグ</h5>
+                <div class="d-flex flex-wrap gap-2">
+                    <span class="badge bg-warning text-dark">#中〜大型</span>
+                    <span class="badge bg-info">#超長毛</span>
+                    <span class="badge bg-danger">#おっとり</span>
+                    <span class="badge bg-primary">#猫の王様</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3"><i class="bi bi-heart-fill text-danger"></i> PetLife</h5>
+                    <p>ペットとの幸せな暮らしを応援する情報サイト</p>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h6 class="fw-bold mb-3">サイト情報</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none">About</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">利用規約</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">プライバシー</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h6 class="fw-bold mb-3">サポート</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none">ヘルプ</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">お問い合わせ</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h6 class="fw-bold mb-3">フォローする</h6>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white fs-4"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-white fs-4"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-white fs-4"><i class="bi bi-youtube"></i></a>
+                        <a href="#" class="text-white fs-4"><i class="bi bi-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-light">
+            <p class="text-center mb-0">&copy; 2024 PetLife. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../login.js"></script>
+
+</body>
+</html>

@@ -6,6 +6,7 @@
     <title>PetLife - 飼育記録を投稿</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="img/ファビコン.png" type="image/x-icon">
     <style>
         :root {
             --primary-color: #10b981;
@@ -449,7 +450,7 @@
     <!-- ナビゲーションバー -->
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="index.html">
                 <i class="bi bi-heart-fill text-danger"></i> PetLife
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -458,22 +459,22 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">ホーム</a>
+                        <a class="nav-link" href="index.html">ホーム</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">ペット図鑑</a>
+                        <a class="nav-link" href="#pet-guide-liststretched-link">ペット図鑑</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">飼い方ガイド</a>
+                        <a class="nav-link" href="pet-care-guide.html">飼い方ガイド</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Q&A</a>
+                        <a class="nav-link" href="pet-guide-qa.html">Q&A</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">飼育記録</a>
+                        <a class="nav-link active" href="pet-guide-record.html">飼育記録</a>
                     </li>
                 </ul>
-                <button class="btn btn-outline-success ms-3 rounded-pill fw-bold">
+                <button class="btn btn-outline-success ms-3 rounded-pill fw-bold" id="auth-btn">
                     <i class="bi bi-person-circle"></i> ログイン
                 </button>
             </div>
@@ -506,7 +507,7 @@
                                 <i class="bi bi-info-circle-fill"></i>
                                 基本情報
                             </h3>
-                            
+
                             <div class="mb-4">
                                 <label class="form-label">ペットを選択<span class="required-mark">*</span></label>
                                 <select class="form-select" required>
@@ -596,7 +597,8 @@
 
                             <div class="mb-4">
                                 <label class="form-label">詳細内容<span class="required-mark">*</span></label>
-                                <textarea class="form-control" placeholder="今日のペットの様子や気づいたことを記録してください..." required></textarea>
+                                <textarea class="form-control" placeholder="今日のペットの様子や気づいたことを記録してください..."
+                                    required></textarea>
                                 <div class="help-text">
                                     <i class="bi bi-chat-quote"></i> 健康状態、行動、食事、気づいたことなどを詳しく記録しましょう
                                 </div>
@@ -667,7 +669,8 @@
                                 <i class="bi bi-cloud-upload"></i>
                                 <div class="upload-text">クリックまたはドラッグ&ドロップで写真を追加</div>
                                 <div class="upload-hint">PNG, JPG, GIF（最大5MB、最大10枚まで）</div>
-                                <input type="file" id="fileInput" multiple accept="image/*" style="display: none;" onchange="previewImages(event)">
+                                <input type="file" id="fileInput" multiple accept="image/*" style="display: none;"
+                                    onchange="previewImages(event)">
                             </div>
 
                             <div class="image-preview-container" id="imagePreviewContainer">
@@ -744,7 +747,9 @@
                             <strong style="color: var(--primary-color);">18日 / 20日</strong>
                         </div>
                         <div class="progress" style="height: 10px; border-radius: 10px;">
-                            <div class="progress-bar" style="width: 90%; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));"></div>
+                            <div class="progress-bar"
+                                style="width: 90%; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));">
+                            </div>
                         </div>
                     </div>
                     <div class="text-center mt-3">
@@ -760,4 +765,327 @@
                         <i class="bi bi-clock-history"></i> 最近の記録
                     </h5>
                     <div class="small">
-                        <div class="d-flex justify-content-between mb-2 pb-2" style="border-bottom: 1px solid rgba(0,0,0,0.1);">
+                        <div class="d-flex justify-content-between mb-2 pb-2"
+                            style="border-bottom: 1px solid rgba(0,0,0,0.1);">
+                            <span>体重測定</span>
+                            <span class="text-muted">11/18</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2 pb-2"
+                            style="border-bottom: 1px solid rgba(0,0,0,0.1);">
+                            <span>定期健診</span>
+                            <span class="text-muted">11/10</span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span>投薬</span>
+                            <span class="text-muted">11/05</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast通知 -->
+    <div class="toast-container">
+        <div class="toast toast-custom" id="successToast" role="alert">
+            <div class="toast-header">
+                <i class="bi bi-check-circle-fill me-2"></i>
+                <strong class="me-auto">投稿完了</strong>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
+            </div>
+            <div class="toast-body">
+                <i class="bi bi-party-popper"></i> 飼育記録が正常に投稿されました！
+            </div>
+        </div>
+
+        <div class="toast toast-custom" id="draftToast" role="alert">
+            <div class="toast-header" style="background: linear-gradient(135deg, #3b82f6, #06b6d4);">
+                <i class="bi bi-save-fill me-2"></i>
+                <strong class="me-auto">下書き保存</strong>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
+            </div>
+            <div class="toast-body">
+                <i class="bi bi-bookmark-check"></i> 下書きとして保存されました。後で編集できます。
+            </div>
+        </div>
+
+        <div class="toast toast-custom" id="errorToast" role="alert">
+            <div class="toast-header" style="background: linear-gradient(135deg, #ef4444, #dc2626);">
+                <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                <strong class="me-auto">エラー</strong>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
+            </div>
+            <div class="toast-body">
+                必須項目を入力してください。
+            </div>
+        </div>
+    </div>
+
+    <!-- フッター -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3">
+                        <i class="bi bi-heart-fill text-danger"></i> PetLife
+                    </h5>
+                    <p>ペットとの幸せな暮らしを応援する情報サイト</p>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h6 class="fw-bold mb-3">サイト情報</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none">About</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">利用規約</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">プライバシー</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h6 class="fw-bold mb-3">サポート</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none">ヘルプ</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">お問い合わせ</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h6 class="fw-bold mb-3">フォローする</h6>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white fs-4"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-white fs-4"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-white fs-4"><i class="bi bi-youtube"></i></a>
+                        <a href="#" class="text-white fs-4"><i class="bi bi-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-light">
+            <p class="text-center mb-0">&copy; 2024 PetLife. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 今日の日時を設定
+        function setToday() {
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const dateTimeString = `${year}-${month}-${day}T${hours}:${minutes}`;
+            document.getElementById('recordDate').value = dateTimeString;
+        }
+
+        // ページ読み込み時に今日の日時を設定
+        window.addEventListener('DOMContentLoaded', setToday);
+
+        // 気分セレクター
+        document.querySelectorAll('.mood-option').forEach(option => {
+            option.addEventListener('click', function () {
+                document.querySelectorAll('.mood-option').forEach(opt => opt.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // 画像プレビュー
+        let selectedFiles = [];
+
+        function previewImages(event) {
+            const files = Array.from(event.target.files);
+            const container = document.getElementById('imagePreviewContainer');
+
+            files.forEach((file, index) => {
+                if (selectedFiles.length >= 10) {
+                    alert('最大10枚まで選択できます');
+                    return;
+                }
+
+                if (file.size > 5 * 1024 * 1024) {
+                    alert('ファイルサイズは5MB以下にしてください');
+                    return;
+                }
+
+                selectedFiles.push(file);
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    const preview = document.createElement('div');
+                    preview.className = 'image-preview';
+                    preview.innerHTML = `
+                        <img src="${e.target.result}" alt="プレビュー">
+                        <button class="remove-btn" onclick="removeImage(${selectedFiles.length - 1})">
+                            <i class="bi bi-x"></i>
+                        </button>
+                    `;
+                    container.appendChild(preview);
+                };
+
+                reader.readAsDataURL(file);
+            });
+        }
+
+        function removeImage(index) {
+            selectedFiles.splice(index, 1);
+            const container = document.getElementById('imagePreviewContainer');
+            container.innerHTML = '';
+
+            selectedFiles.forEach((file, idx) => {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const preview = document.createElement('div');
+                    preview.className = 'image-preview';
+                    preview.innerHTML = `
+                        <img src="${e.target.result}" alt="プレビュー">
+                        <button class="remove-btn" onclick="removeImage(${idx})">
+                            <i class="bi bi-x"></i>
+                        </button>
+                    `;
+                    container.appendChild(preview);
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        // タグ機能
+        let tags = [];
+
+        function addTag(tagText) {
+            if (!tagText || tagText.trim() === '') return;
+
+            if (tags.includes(tagText)) {
+                alert('このタグは既に追加されています');
+                return;
+            }
+
+            if (tags.length >= 10) {
+                alert('タグは最大10個まで追加できます');
+                return;
+            }
+
+            tags.push(tagText);
+            renderTags();
+        }
+
+        function removeTag(index) {
+            tags.splice(index, 1);
+            renderTags();
+        }
+
+        function renderTags() {
+            const container = document.getElementById('tagContainer');
+            const input = document.getElementById('tagInput');
+
+            container.innerHTML = '';
+
+            tags.forEach((tag, index) => {
+                const tagElement = document.createElement('div');
+                tagElement.className = 'tag-item';
+                tagElement.innerHTML = `
+                    <span>${tag}</span>
+                    <span class="remove-tag" onclick="removeTag(${index})">×</span>
+                `;
+                container.appendChild(tagElement);
+            });
+
+            const newInput = input.cloneNode(true);
+            container.appendChild(newInput);
+
+            newInput.addEventListener('keypress', function (e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    const value = this.value.trim();
+                    if (value) {
+                        addTag(value);
+                        this.value = '';
+                    }
+                }
+            });
+        }
+
+        // 初期化
+        document.getElementById('tagInput').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                const value = this.value.trim();
+                if (value) {
+                    addTag(value);
+                    this.value = '';
+                }
+            }
+        });
+
+        // フォーム送信
+        document.getElementById('recordForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // バリデーション
+            const form = e.target;
+            if (!form.checkValidity()) {
+                form.classList.add('was-validated');
+                showToast('errorToast');
+                return;
+            }
+
+            // 成功トースト表示
+            showToast('successToast');
+
+            // フォームリセット（オプション）
+            setTimeout(() => {
+                form.reset();
+                tags = [];
+                selectedFiles = [];
+                document.getElementById('imagePreviewContainer').innerHTML = '';
+                document.getElementById('tagContainer').innerHTML = '<input type="text" class="tag-input-field" id="tagInput" placeholder="タグを入力してEnter">';
+                document.querySelectorAll('.mood-option').forEach(opt => opt.classList.remove('active'));
+                document.querySelector('.mood-option[data-mood="normal"]').classList.add('active');
+                setToday();
+            }, 2000);
+        });
+
+        // 下書き保存
+        function saveDraft() {
+            showToast('draftToast');
+        }
+
+        // Toast表示関数
+        function showToast(toastId) {
+            const toastElement = document.getElementById(toastId);
+            const toast = new bootstrap.Toast(toastElement, {
+                autohide: true,
+                delay: 5000
+            });
+            toast.show();
+        }
+
+        // ドラッグ&ドロップ機能
+        const uploadArea = document.querySelector('.file-upload-area');
+
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.style.borderColor = 'var(--primary-color)';
+            uploadArea.style.background = 'rgba(16, 185, 129, 0.05)';
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.style.borderColor = '#e5e7eb';
+            uploadArea.style.background = '#fafafa';
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.style.borderColor = '#e5e7eb';
+            uploadArea.style.background = '#fafafa';
+
+            const files = e.dataTransfer.files;
+            const fileInput = document.getElementById('fileInput');
+            fileInput.files = files;
+
+            const event = new Event('change', { bubbles: true });
+            fileInput.dispatchEvent(event);
+        });
+    </script>
+    <script src="./login.js"></script>
+
+</body>
+
+</html>
