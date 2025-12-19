@@ -69,8 +69,13 @@
             placeholder="ご質問・ご意見などをご記入ください"
           ></textarea>
         </div>
-        <button class="btn btn-primary-custom w-100 py-2">送信する</button>
+        <button type="button" class="btn btn-primary-custom w-100 py-2" id="back">送信する</button>
       </form>
     </div>
+    <script>
+         document.getElementById('back').addEventListener('click',function(event){
+          location.href = 'index.html'; // デフォルト
+        })
+    </script>
   </body>
 </html>

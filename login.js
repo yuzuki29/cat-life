@@ -13,7 +13,7 @@ const btn = document.getElementById('auth-btn');
               btn.innerHTML = '<i class="bi bi-person-circle"></i> ログイン';
                 btn.addEventListener('click',() => {
                     localStorage.setItem("redirect_after_login", currentPage);
-                    location.href = '/final-task-level3/login.html';
+                    location.href = '/login.html';
                 });
             }
         }

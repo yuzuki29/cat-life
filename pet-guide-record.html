@@ -4,15 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PetLife - 飼育記録・健康管理</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"/>
     <link rel="shortcut icon" href="img/ファビコン.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/cat.css" />
     <style>
       :root {
         --primary-color: #10b981;
@@ -313,6 +308,7 @@
     </style>
   </head>
   <body>
+    <img id="cat" src="./img/cat/cat-walk-1.webp" />
     <!-- ナビゲーションバー -->
     <nav class="navbar navbar-expand-lg sticky-top">
       <div class="container">
@@ -366,381 +362,373 @@
         </div>
     </div>
 
-    <div class="container">
-        <!-- ペットプロフィール -->
-        <div class="pet-profile-card">
-            <div class="row align-items-center">
-                <div class="col-md-3 text-center mb-3 mb-md-0">
-                    <img src="https://placehold.co/120x120/10b981/ffffff?text=🐕" alt="モカ" class="pet-avatar">
-                    <h4 class="mt-3 mb-2 fw-bold" style="color: var(--brown-color);">モカ</h4>
-                    <p class="text-muted mb-0">柴犬 ♀</p>
-                </div>
-                <div class="col-md-9">
-                    <div class="row">
-                        <div class="col-6 col-md-3 mb-3">
-                            <small class="text-muted d-block">年齢</small>
-                            <strong class="h5" style="color: var(--brown-color);">2歳3ヶ月</strong>
-                        </div>
-                        <div class="col-6 col-md-3 mb-3">
-                            <small class="text-muted d-block">体重</small>
-                            <strong class="h5" style="color: var(--brown-color);">8.5kg</strong>
-                        </div>
-                        <div class="col-6 col-md-3 mb-3">
-                            <small class="text-muted d-block">誕生日</small>
-                            <strong class="h5" style="color: var(--brown-color);">2022/8/15</strong>
-                        </div>
-                        <div class="col-6 col-md-3 mb-3">
-                            <small class="text-muted d-block">飼育日数</small>
-                            <strong class="h5" style="color: var(--brown-color);">826日</strong>
-                        </div>
+<div class="container">
+    <div class="pet-profile-card">
+        <div class="row align-items-center">
+            <div class="col-md-3 text-center mb-3 mb-md-0">
+                <img src="https://placehold.co/120x120/10b981/ffffff?text=🐈" alt="コタロー" class="pet-avatar">
+                <h4 class="mt-3 mb-2 fw-bold" style="color: var(--brown-color);">コタロー</h4>
+                <p class="text-muted mb-0">スコティッシュフォールド ♂</p>
+            </div>
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-6 col-md-3 mb-3">
+                        <small class="text-muted d-block">年齢</small>
+                        <strong class="h5" style="color: var(--brown-color);">1歳8ヶ月</strong>
                     </div>
-                    <div class="mt-2">
-                        <span class="info-badge">
-                            <i class="bi bi-heart-pulse"></i> 健康状態: 良好
-                        </span>
-                        <span class="info-badge">
-                            <i class="bi bi-shield-check"></i> ワクチン接種済み
-                        </span>
-                        <span class="info-badge">
-                            <i class="bi bi-clipboard-check"></i> 次回健診: 2024/12/15
-                        </span>
+                    <div class="col-6 col-md-3 mb-3">
+                        <small class="text-muted d-block">体重</small>
+                        <strong class="h5" style="color: var(--brown-color);">4.2kg</strong>
+                    </div>
+                    <div class="col-6 col-md-3 mb-3">
+                        <small class="text-muted d-block">誕生日</small>
+                        <strong class="h5" style="color: var(--brown-color);">2024/4/25</strong>
+                    </div>
+                    <div class="col-6 col-md-3 mb-3">
+                        <small class="text-muted d-block">飼育日数</small>
+                        <strong class="h5" style="color: var(--brown-color);">600日</strong>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <!-- 統計カード -->
-        <div class="row g-4 mb-4">
-            <div class="col-md-3 col-sm-6">
-                <div class="stat-card">
-                    <div class="stat-icon" style="background: rgba(16, 185, 129, 0.1); color: var(--primary-color);">
-                        <i class="bi bi-calendar-check"></i>
-                    </div>
-                    <div class="stat-number">156</div>
-                    <p class="text-muted mb-0">記録日数</p>
+                <div class="mt-2">
+                    <span class="info-badge">
+                        <i class="bi bi-heart-pulse"></i> 健康状態: 良好（アレルギーあり）
+                    </span>
+                    <span class="info-badge">
+                        <i class="bi bi-shield-check"></i> 混合ワクチン接種済み
+                    </span>
+                    <span class="info-badge">
+                        <i class="bi bi-clipboard-check"></i> 次回健診: 2025/1/20
+                    </span>
                 </div>
             </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="stat-card">
-                    <div class="stat-icon" style="background: rgba(245, 158, 11, 0.1); color: var(--secondary-color);">
-                        <i class="bi bi-graph-up"></i>
-                    </div>
-                    <div class="stat-number">+0.8kg</div>
-                    <p class="text-muted mb-0">体重変化（6ヶ月）</p>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="stat-card">
-                    <div class="stat-icon" style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">
-                        <i class="bi bi-hospital"></i>
-                    </div>
-                    <div class="stat-number">8回</div>
-                    <p class="text-muted mb-0">動物病院訪問</p>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="stat-card">
-                    <div class="stat-icon" style="background: rgba(236, 72, 153, 0.1); color: #ec4899;">
-                        <i class="bi bi-camera"></i>
-                    </div>
-                    <div class="stat-number">234</div>
-                    <p class="text-muted mb-0">写真・思い出</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- プログレスバー -->
-        <div class="row g-4 mb-4">
-            <div class="col-md-6">
-                <div class="progress-card">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h5 class="fw-bold mb-0" style="color: var(--brown-color);">
-                            <i class="bi bi-droplet-fill text-info"></i> 今日の水分摂取
-                        </h5>
-                        <span class="fw-bold" style="color: var(--primary-color);">750ml / 1000ml</span>
-                    </div>
-                    <div class="progress progress-custom">
-                        <div class="progress-bar progress-bar-custom" role="progressbar" style="width: 75%">75%</div>
-                    </div>
-                    <small class="text-muted mt-2 d-block">目標まであと250ml</small>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="progress-card">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h5 class="fw-bold mb-0" style="color: var(--brown-color);">
-                            <i class="bi bi-moon-stars-fill" style="color: #8b5cf6;"></i> 今日の睡眠時間
-                        </h5>
-                        <span class="fw-bold" style="color: var(--primary-color);">10時間 / 12時間</span>
-                    </div>
-                    <div class="progress progress-custom">
-                        <div class="progress-bar progress-bar-custom" role="progressbar" style="width: 83%">83%</div>
-                    </div>
-                    <small class="text-muted mt-2 d-block">順調に休息できています</small>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="progress-card">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h5 class="fw-bold mb-0" style="color: var(--brown-color);">
-                            <i class="bi bi-lightning-charge-fill text-warning"></i> 今日の運動量
-                        </h5>
-                        <span class="fw-bold" style="color: var(--primary-color);">8,500歩 / 10,000歩</span>
-                    </div>
-                    <div class="progress progress-custom">
-                        <div class="progress-bar progress-bar-custom" role="progressbar" style="width: 85%">85%</div>
-                    </div>
-                    <small class="text-muted mt-2 d-block">目標まであと1,500歩</small>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="progress-card">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h5 class="fw-bold mb-0" style="color: var(--brown-color);">
-                            <i class="bi bi-award-fill text-danger"></i> 今月のしつけ達成率
-                        </h5>
-                        <span class="fw-bold" style="color: var(--primary-color);">18回 / 20回</span>
-                    </div>
-                    <div class="progress progress-custom">
-                        <div class="progress-bar progress-bar-custom" role="progressbar" style="width: 90%">90%</div>
-                    </div>
-                    <small class="text-muted mt-2 d-block">素晴らしい進捗です！</small>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <!-- 左カラム：健康記録テーブル -->
-            <div class="col-lg-8">
-                <!-- アラート -->
-                <div class="alert alert-warning alert-custom" role="alert">
-                    <i class="bi bi-exclamation-triangle-fill me-2"></i>
-                    <strong>次回のワクチン接種が近づいています！</strong>
-                    <p class="mb-0 mt-2">2024年12月15日に年次ワクチン接種の予定です。動物病院の予約をお忘れなく。</p>
-                </div>
-
-                <!-- フィルターボタン -->
-                <div class="record-table">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h4 class="fw-bold mb-0" style="color: var(--brown-color);">
-                            <i class="bi bi-clipboard2-data"></i> 健康記録一覧
-                        </h4>
-                        <button class="btn btn-add-record">
-                            <i class="bi bi-plus-circle"></i> 記録を追加
-                        </button>
-                    </div>
-
-                    <div class="filter-buttons">
-                        <button class="filter-btn active">すべて</button>
-                        <button class="filter-btn">健康診断</button>
-                        <button class="filter-btn">ワクチン</button>
-                        <button class="filter-btn">体重測定</button>
-                        <button class="filter-btn">投薬</button>
-                    </div>
-
-                    <div class="table-responsive">
-                        <table class="table table-custom">
-                            <thead>
-                                <tr>
-                                    <th>日付</th>
-                                    <th>種類</th>
-                                    <th>内容</th>
-                                    <th>メモ</th>
-                                    <th>操作</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>2024/11/18</td>
-                                    <td><span class="event-badge event-weight">体重測定</span></td>
-                                    <td><strong>8.5kg</strong></td>
-                                    <td>前月比+0.2kg、健康的な増加</td>
-                                    <td>
-                                        <button class="btn btn-sm btn-outline-primary rounded-pill">
-                                            <i class="bi bi-pencil"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2024/11/10</td>
-                                    <td><span class="event-badge event-checkup">健康診断</span></td>
-                                    <td>定期検診</td>
-                                    <td>異常なし、健康状態良好</td>
-                                    <td>
-                                        <button class="btn btn-sm btn-outline-primary rounded-pill">
-                                            <i class="bi bi-pencil"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2024/11/05</td>
-                                    <td><span class="event-badge event-medication">投薬</span></td>
-                                    <td>フィラリア予防薬</td>
-                                    <td>月例投薬、問題なく服用</td>
-                                    <td>
-                                        <button class="btn btn-sm btn-outline-primary rounded-pill">
-                                            <i class="bi bi-pencil"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2024/10/20</td>
-                                    <td><span class="event-badge event-weight">体重測定</span></td>
-                                    <td><strong>8.3kg</strong></td>
-                                    <td>適正体重を維持</td>
-                                    <td>
-                                        <button class="btn btn-sm btn-outline-primary rounded-pill">
-                                            <i class="bi bi-pencil"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2024/10/05</td>
-                                    <td><span class="event-badge event-medication">投薬</span></td>
-                                    <td>フィラリア予防薬</td>
-                                    <td>月例投薬完了</td>
-                                    <td>
-                                        <button class="btn btn-sm btn-outline-primary rounded-pill">
-                                            <i class="bi bi-pencil"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2024/09/15</td>
-                                    <td><span class="event-badge event-vaccine">ワクチン</span></td>
-                                    <td>狂犬病ワクチン</td>
-                                    <td>年次接種完了、副作用なし</td>
-                                    <td>
-                                        <button class="btn btn-sm btn-outline-primary rounded-pill">
-                                            <i class="bi bi-pencil"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2024/09/08</td>
-                                    <td><span class="event-badge event-checkup">健康診断</span></td>
-                                    <td>歯科検診</td>
-                                    <td>歯石除去実施、口腔内良好</td>
-                                    <td>
-                                        <button class="btn btn-sm btn-outline-primary rounded-pill">
-                                            <i class="bi bi-pencil"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <nav class="mt-4">
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item disabled">
-                                <a class="page-link rounded-pill me-2" href="#" tabindex="-1">前へ</a>
-                            </li>
-                            <li class="page-item active"><a class="page-link rounded-pill mx-1" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link rounded-pill mx-1" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link rounded-pill mx-1" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link rounded-pill ms-2" href="#">次へ</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-
-            <!-- 右カラム：タイムライン -->
-            <div class="col-lg-4">
-                <div class="progress-card mb-4">
-                    <h5 class="fw-bold mb-4" style="color: var(--brown-color);">
-                        <i class="bi bi-clock-history"></i> 最近のアクティビティ
-                    </h5>
-
-                    <div class="timeline-card">
-                        <div class="timeline-icon"
-                            style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));">
-                            <i class="bi bi-camera-fill"></i>
-                        </div>
-                        <div class="timeline-date">2時間前</div>
-                        <h6 class="fw-bold mb-1">散歩の写真を追加</h6>
-                        <p class="text-muted mb-0 small">ロープトイで大喜び</p>
-                    </div>
-                </div>
-
-                <!-- 体重推移グラフ（簡易版） -->
-                <div class="chart-container">
-                    <h5 class="fw-bold mb-4" style="color: var(--brown-color);">
-                        <i class="bi bi-graph-up-arrow"></i> 体重推移（6ヶ月）
-                    </h5>
-                    <div class="text-center">
-                        <img src="https://placehold.co/350x200/dcfce7/10b981?text=体重推移グラフ" alt="体重推移グラフ"
-                            class="img-fluid rounded">
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-6 text-center">
-                            <small class="text-muted d-block">最低体重</small>
-                            <strong class="text-info">7.8kg</strong>
-                        </div>
-                        <div class="col-6 text-center">
-                            <small class="text-muted d-block">最高体重</small>
-                            <strong class="text-danger">8.6kg</strong>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- おすすめアクション -->
-                <div class="progress-card">
-                    <h5 class="fw-bold mb-3" style="color: var(--brown-color);">
-                        <i class="bi bi-lightbulb-fill text-warning"></i> おすすめアクション
-                    </h5>
-                    <div class="d-grid gap-2">
-                        <button class="btn btn-outline-success rounded-pill">
-                            <i class="bi bi-camera"></i> 今日の写真を追加
-                        </button>
-                        <button class="btn btn-outline-primary rounded-pill">
-                            <i class="bi bi-calendar-check"></i> 次回検診を予約
-                        </button>
-                        <button class="btn btn-outline-warning rounded-pill">
-                            <i class="bi bi-download"></i> 記録をエクスポート
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="timeline-card">
-            <div class="timeline-icon" style="background: linear-gradient(135deg, #10b981, #14b8a6);">
-                <i class="bi bi-clipboard-check-fill"></i>
-            </div>
-            <div class="timeline-date">今日 8:30</div>
-            <h6 class="fw-bold mb-1">体重測定完了</h6>
-            <p class="text-muted mb-0 small">8.5kg（前月比+0.2kg）</p>
-        </div>
-
-        <div class="timeline-card">
-            <div class="timeline-icon" style="background: linear-gradient(135deg, #f59e0b, #fb923c);">
-                <i class="bi bi-droplet-fill"></i>
-            </div>
-            <div class="timeline-date">今日 7:00</div>
-            <h6 class="fw-bold mb-1">水分補給記録</h6>
-            <p class="text-muted mb-0 small">朝食後 250ml</p>
-        </div>
-
-        <div class="timeline-card">
-            <div class="timeline-icon" style="background: linear-gradient(135deg, #3b82f6, #06b6d4);">
-                <i class="bi bi-hospital-fill"></i>
-            </div>
-            <div class="timeline-date">昨日 14:30</div>
-            <h6 class="fw-bold mb-1">定期健診完了</h6>
-            <p class="text-muted mb-0 small">健康状態良好と診断</p>
-        </div>
-
-        <div class="timeline-card">
-            <div class="timeline-icon" style="background: linear-gradient(135deg, #8b5cf6, #ec4899);">
-                <i class="bi bi-gift-fill"></i>
-            </div>
-            <div class="timeline-date">3日前</div>
-            <h6 class="fw-bold mb-1">新しいおもちゃ購入</h6>
-            <p class="text-muted mb-0 small">公園で楽しく遊びました</p>
         </div>
     </div>
+
+    <div class="row g-4 mb-4">
+        <div class="col-md-3 col-sm-6">
+            <div class="stat-card">
+                <div class="stat-icon" style="background: rgba(16, 185, 129, 0.1); color: var(--primary-color);">
+                    <i class="bi bi-calendar-check"></i>
+                </div>
+                <div class="stat-number">156</div>
+                <p class="text-muted mb-0">記録日数</p>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="stat-card">
+                <div class="stat-icon" style="background: rgba(245, 158, 11, 0.1); color: var(--secondary-color);">
+                    <i class="bi bi-graph-up"></i>
+                </div>
+                <div class="stat-number">+0.2kg</div>
+                <p class="text-muted mb-0">体重変化（6ヶ月）</p>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="stat-card">
+                <div class="stat-icon" style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">
+                    <i class="bi bi-hospital"></i>
+                </div>
+                <div class="stat-number">5回</div>
+                <p class="text-muted mb-0">動物病院訪問</p>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="stat-card">
+                <div class="stat-icon" style="background: rgba(236, 72, 153, 0.1); color: #ec4899;">
+                    <i class="bi bi-camera"></i>
+                </div>
+                <div class="stat-number">234</div>
+                <p class="text-muted mb-0">写真・思い出</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4 mb-4">
+        <div class="col-md-6">
+            <div class="progress-card">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="fw-bold mb-0" style="color: var(--brown-color);">
+                        <i class="bi bi-droplet-fill text-info"></i> 今日の水分摂取
+                    </h5>
+                    <span class="fw-bold" style="color: var(--primary-color);">200ml / 300ml</span>
+                </div>
+                <div class="progress progress-custom">
+                    <div class="progress-bar progress-bar-custom" role="progressbar" style="width: 67%">67%</div>
+                </div>
+                <small class="text-muted mt-2 d-block">目標まであと100ml</small>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="progress-card">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="fw-bold mb-0" style="color: var(--brown-color);">
+                        <i class="bi bi-moon-stars-fill" style="color: #8b5cf6;"></i> 今日の睡眠時間
+                    </h5>
+                    <span class="fw-bold" style="color: var(--primary-color);">14時間 / 15時間</span>
+                </div>
+                <div class="progress progress-custom">
+                    <div class="progress-bar progress-bar-custom" role="progressbar" style="width: 93%">93%</div>
+                </div>
+                <small class="text-muted mt-2 d-block">順調に休息できています</small>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="progress-card">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="fw-bold mb-0" style="color: var(--brown-color);">
+                        <i class="bi bi-lightning-charge-fill text-warning"></i> 今日の遊び時間
+                    </h5>
+                    <span class="fw-bold" style="color: var(--primary-color);">50分 / 60分</span>
+                </div>
+                <div class="progress progress-custom">
+                    <div class="progress-bar progress-bar-custom" role="progressbar" style="width: 83%">83%</div>
+                </div>
+                <small class="text-muted mt-2 d-block">目標まであと10分</small>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="progress-card">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="fw-bold mb-0" style="color: var(--brown-color);">
+                        <i class="bi bi-award-fill text-danger"></i> 今月のグルーミング達成率
+                    </h5>
+                    <span class="fw-bold" style="color: var(--primary-color);">15回 / 15回</span>
+                </div>
+                <div class="progress progress-custom">
+                    <div class="progress-bar progress-bar-custom" role="progressbar" style="width: 100%">100%</div>
+                </div>
+                <small class="text-muted mt-2 d-block">今月も毛玉対策完璧です！</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="alert alert-warning alert-custom" role="alert">
+                <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                <strong>アレルギー治療薬の投薬日が近づいています！</strong>
+                <p class="mb-0 mt-2">2024年12月25日に月例のアレルギー薬投薬の予定です。忘れずに投与しましょう。</p>
+            </div>
+
+            <div class="record-table">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="fw-bold mb-0" style="color: var(--brown-color);">
+                        <i class="bi bi-clipboard2-data"></i> 健康記録一覧
+                    </h4>
+                    <button class="btn btn-add-record">
+                        <i class="bi bi-plus-circle"></i> 記録を追加
+                    </button>
+                </div>
+
+                <div class="filter-buttons">
+                    <button class="filter-btn active">すべて</button>
+                    <button class="filter-btn">健康診断</button>
+                    <button class="filter-btn">ワクチン</button>
+                    <button class="filter-btn">体重測定</button>
+                    <button class="filter-btn">投薬</button>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-custom">
+                        <thead>
+                            <tr>
+                                <th>日付</th>
+                                <th>種類</th>
+                                <th>内容</th>
+                                <th>メモ</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2024/11/18</td>
+                                <td><span class="event-badge event-weight">体重測定</span></td>
+                                <td><strong>4.2kg</strong></td>
+                                <td>先月比±0kg、適正体重を維持</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary rounded-pill">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2024/11/10</td>
+                                <td><span class="event-badge event-checkup">健康診断</span></td>
+                                <td>定期検診（血液検査含む）</td>
+                                <td>腎機能・肝機能良好。アレルギー再発なし</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary rounded-pill">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2024/11/05</td>
+                                <td><span class="event-badge event-medication">投薬</span></td>
+                                <td>アレルギー治療薬</td>
+                                <td>月例投薬、問題なく服用</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary rounded-pill">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2024/10/20</td>
+                                <td><span class="event-badge event-weight">体重測定</span></td>
+                                <td><strong>4.2kg</strong></td>
+                                <td>安定</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary rounded-pill">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2024/10/05</td>
+                                <td><span class="event-badge event-medication">投薬</span></td>
+                                <td>アレルギー治療薬</td>
+                                <td>月例投薬完了</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary rounded-pill">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2024/09/15</td>
+                                <td><span class="event-badge event-vaccine">ワクチン</span></td>
+                                <td>3種混合ワクチン</td>
+                                <td>年次接種完了、副作用なし</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary rounded-pill">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2024/09/08</td>
+                                <td><span class="event-badge event-checkup">健康診断</span></td>
+                                <td>歯科検診</td>
+                                <td>歯石なし、口腔内良好</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary rounded-pill">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <nav class="mt-4">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link rounded-pill me-2" href="#" tabindex="-1">前へ</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link rounded-pill mx-1" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link rounded-pill mx-1" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link rounded-pill mx-1" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link rounded-pill ms-2" href="#">次へ</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="progress-card mb-4">
+                <h5 class="fw-bold mb-4" style="color: var(--brown-color);">
+                    <i class="bi bi-clock-history"></i> 最近のアクティビティ
+                </h5>
+
+                <div class="timeline-card">
+                    <div class="timeline-icon"
+                        style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));">
+                        <i class="bi bi-camera-fill"></i>
+                    </div>
+                    <div class="timeline-date">2時間前</div>
+                    <h6 class="fw-bold mb-1">くつろぎの様子を撮影</h6>
+                    <p class="text-muted mb-0 small">日向でぐっすり</p>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <h5 class="fw-bold mb-4" style="color: var(--brown-color);">
+                    <i class="bi bi-graph-up-arrow"></i> 体重推移（6ヶ月）
+                </h5>
+                
+                <div class="text-center">
+                    <img src="https://placehold.co/350x200/dcfce7/10b981?text=体重推移グラフ" alt="体重推移グラフ"
+                        class="img-fluid rounded">
+                </div>
+                <div class="row mt-3">
+                    <div class="col-6 text-center">
+                        <small class="text-muted d-block">最低体重</small>
+                        <strong class="text-info">3.8kg</strong>
+                    </div>
+                    <div class="col-6 text-center">
+                        <small class="text-muted d-block">最高体重</small>
+                        <strong class="text-danger">4.3kg</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="progress-card">
+                <h5 class="fw-bold mb-3" style="color: var(--brown-color);">
+                    <i class="bi bi-lightbulb-fill text-warning"></i> おすすめアクション
+                </h5>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-outline-success rounded-pill">
+                        <i class="bi bi-camera"></i> 今日の写真を追加
+                    </button>
+                    <button class="btn btn-outline-primary rounded-pill">
+                        <i class="bi bi-calendar-check"></i> 次回検診を予約
+                    </button>
+                    <button class="btn btn-outline-warning rounded-pill">
+                        <i class="bi bi-download"></i> 記録をエクスポート
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="timeline-card">
+        <div class="timeline-icon" style="background: linear-gradient(135deg, #10b981, #14b8a6);">
+            <i class="bi bi-clipboard-check-fill"></i>
+        </div>
+        <div class="timeline-date">今日 10:00</div>
+        <h6 class="fw-bold mb-1">遊び時間記録</h6>
+        <p class="text-muted mb-0 small">ねこじゃらしで20分間集中</p>
+    </div>
+
+    <div class="timeline-card">
+        <div class="timeline-icon" style="background: linear-gradient(135deg, #f59e0b, #fb923c);">
+            <i class="bi bi-droplet-fill"></i>
+        </div>
+        <div class="timeline-date">今日 7:30</div>
+        <h6 class="fw-bold mb-1">給水器の水を交換</h6>
+        <p class="text-muted mb-0 small">朝一で新鮮な水を提供</p>
+    </div>
+
+    <div class="timeline-card">
+        <div class="timeline-icon" style="background: linear-gradient(135deg, #3b82f6, #06b6d4);">
+            <i class="bi bi-hospital-fill"></i>
+        </div>
+        <div class="timeline-date">昨日 18:00</div>
+        <h6 class="fw-bold mb-1">歯磨き完了</h6>
+        <p class="text-muted mb-0 small">猫用歯ブラシで丁寧に</p>
+    </div>
+
+    <div class="timeline-card">
+        <div class="timeline-icon" style="background: linear-gradient(135deg, #8b5cf6, #ec4899);">
+            <i class="bi bi-gift-fill"></i>
+        </div>
+        <div class="timeline-date">3日前</div>
+        <h6 class="fw-bold mb-1">爪とぎポールを新調</h6>
+        <p class="text-muted mb-0 small">早速使用してくれました</p>
+    </div>
+</div>
     <!-- フッター -->
     <footer>
         <div class="container">
@@ -798,5 +786,6 @@
         });
     </script>
     <script src="./login.js"></script>
+    <script src="./js/cat-walk.js"></script>
 </body>
 </html>

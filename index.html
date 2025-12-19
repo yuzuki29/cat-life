@@ -1,623 +1,887 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CatLife - 猫情報・飼い方ガイド</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-    <link rel="shortcut icon" href="img/ファビコン.png" type="image/x-icon">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+    />
+    <link rel="shortcut icon" href="img/ファビコン.png" type="image/x-icon" />
+    <link rel="stylesheet" href="css/cat.css" />
     <style>
-        :root {
-            --primary-color: #10b981;
-            --secondary-color: #f59e0b;
-            --accent-color: #fb923c;
-            --brown-color: #78350f;
+      :root {
+        --primary-color: #10b981;
+        --secondary-color: #f59e0b;
+        --accent-color: #fb923c;
+        --brown-color: #78350f;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #fef3c7;
+      }
+
+      .navbar {
+        background-color: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar-brand {
+        font-weight: bold;
+        color: var(--primary-color) !important;
+        font-size: 1.5rem;
+      }
+
+      .nav-link {
+        color: var(--brown-color) !important;
+        font-weight: 500;
+        margin: 0 10px;
+      }
+
+      .nav-link:hover {
+        color: var(--primary-color) !important;
+      }
+
+      .hero-section {
+        background: linear-gradient(135deg, #dcfce7 0%, #fed7aa 100%);
+        padding: 80px 0;
+        border-radius: 0 0 50px 50px;
+        margin-bottom: 50px;
+      }
+
+      .hero-image {
+        width: 100%;
+        max-width: 500px;
+        animation: float 3s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
         }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #fef3c7;
+        50% {
+          transform: translateY(-20px);
         }
-        
-        .navbar {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .navbar-brand {
-            font-weight: bold;
-            color: var(--primary-color) !important;
-            font-size: 1.5rem;
-        }
-        
-        .nav-link {
-            color: var(--brown-color) !important;
-            font-weight: 500;
-            margin: 0 10px;
-        }
-        
-        .nav-link:hover {
-            color: var(--primary-color) !important;
-        }
-        
-        .hero-section {
-            background: linear-gradient(135deg, #dcfce7 0%, #fed7aa 100%);
-            padding: 80px 0;
-            border-radius: 0 0 50px 50px;
-            margin-bottom: 50px;
-        }
-        
-        .hero-image {
-            width: 100%;
-            max-width: 500px;
-            animation: float 3s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        
-        .pet-card {
-            background: white;
-            border-radius: 30px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            height: 100%;
-            border: 3px solid transparent;
-        }
-        
-        .pet-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-            border-color: var(--primary-color);
-        }
-        
-        .pet-icon {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            margin: 0 auto 20px;
-            color: white;
-        }
-        
-        .category-badge {
-            background: var(--secondary-color);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 15px;
-        }
-        
-        .feature-card {
-            background: white;
-            border-radius: 25px;
-            padding: 40px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            height: 100%;
-        }
-        
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-            background: rgba(16, 185, 129, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin: 0 auto 20px;
-        }
-        
-        .btn-primary-custom {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            border: none;
-            color: white;
-            padding: 15px 40px;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-primary-custom:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
-        }
-        
-        .section-title {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 40px;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 60%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            border-radius: 2px;
-        }
-        
-        footer {
-            background-color: var(--brown-color);
-            color: white;
-            padding: 40px 0;
-            margin-top: 80px;
-            border-radius: 50px 50px 0 0;
-        }
-        
-        .stats-box {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-        }
-        
-        .stats-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-        
-        .nav-link:hover, .nav-link.active {
-            color: var(--primary-color) !important;
-        }
-    
+      }
+
+      .pet-card {
+        background: white;
+        border-radius: 30px;
+        padding: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        height: 100%;
+        border: 3px solid transparent;
+      }
+
+      .pet-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        border-color: var(--primary-color);
+      }
+
+      .pet-icon {
+        width: 100px;
+        height: 100px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        margin: 0 auto 20px;
+        color: white;
+      }
+
+      .category-badge {
+        background: var(--secondary-color);
+        color: white;
+        padding: 8px 20px;
+        border-radius: 50px;
+        font-weight: bold;
+        display: inline-block;
+        margin-bottom: 15px;
+      }
+
+      .feature-card {
+        background: white;
+        border-radius: 25px;
+        padding: 40px;
+        text-align: center;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        height: 100%;
+      }
+
+      .feature-icon {
+        width: 80px;
+        height: 80px;
+        background: rgba(16, 185, 129, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin: 0 auto 20px;
+      }
+
+      .btn-primary-custom {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        border: none;
+        color: white;
+        padding: 15px 40px;
+        border-radius: 50px;
+        font-weight: bold;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary-custom:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+      }
+
+      .section-title {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 40px;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 60%;
+        height: 4px;
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        border-radius: 2px;
+      }
+
+      footer {
+        background-color: var(--brown-color);
+        color: white;
+        padding: 40px 0;
+        margin-top: 80px;
+        border-radius: 50px 50px 0 0;
+      }
+
+      .stats-box {
+        background: white;
+        border-radius: 20px;
+        padding: 30px;
+        text-align: center;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .stats-number {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: var(--primary-color);
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--primary-color) !important;
+      }
 
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <img id="cat" src="./img/cat/cat-walk-1.webp" />
+    <img id="enemy" src="./img/enemy/butterfly-1.webp">
     <!-- ナビゲーションバー -->
     <nav class="navbar navbar-expand-lg sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <i class="bi bi-heart-fill text-danger"></i> CatLife
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">ホーム</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pet-guide-list.html">猫図鑑</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pet-care-guide.html">飼い方ガイド</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pet-guide-qa.html">Q&A</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pet-guide-record.html">飼育記録</a>
-                    </li>
-                </ul>
-                <button class="btn btn-outline-success ms-3 rounded-pill fw-bold" id="auth-btn">
-                    <i class="bi bi-person-circle"></i> ログイン
-                </button>
-            </div>
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <i class="bi bi-heart-fill text-danger"></i> CatLife
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">ホーム</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="pet-guide-list.html">猫図鑑</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="pet-care-guide.html">飼い方ガイド</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="pet-guide-qa.html">Q&A</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="pet-guide-record.html">飼育記録</a>
+            </li>
+          </ul>
+          <button
+            class="btn btn-outline-success ms-3 rounded-pill fw-bold"
+            id="auth-btn"
+          >
+            <i class="bi bi-person-circle"></i> ログイン
+          </button>
         </div>
+      </div>
     </nav>
 
     <!-- ヒーローセクション -->
     <div class="hero-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                    <h1 class="display-3 fw-bold mb-4" style="color: var(--brown-color);">
-                        あなたにぴったりの猫を見つけよう
-                    </h1>
-                    <p class="lead mb-4" style="color: #78350f;">
-                        猫との幸せな暮らしをサポートする情報サイト。<br>
-                        飼い方、健康管理、しつけまで詳しく解説！
-                    </p>
-                    <div class="d-flex gap-3">
-                        <a class="btn btn-primary-custom" href="pet-guide-list.html">
-                            <i class="bi bi-search"></i> 猫を探す
-                        </a>
-                        <a class="btn btn-outline-dark rounded-pill px-4 py-3 fw-bold" href="pet-care-guide.html">
-                            <i class="bi bi-book"></i> 飼い方を学ぶ
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-6 text-center">
-                    <img src="https://placehold.co/500x400/10b981/ffffff?text=Happy+Cats" class="hero-image" alt="猫イラスト">
-                </div>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <h1
+              class="display-3 fw-bold mb-4"
+              style="color: var(--brown-color)"
+            >
+              あなたにぴったりの猫を見つけよう
+            </h1>
+            <p class="lead mb-4" style="color: #78350f">
+              猫との幸せな暮らしをサポートする情報サイト。<br />
+              飼い方、健康管理、しつけまで詳しく解説！
+            </p>
+            <div class="d-flex gap-3">
+              <a class="btn btn-primary-custom" href="pet-guide-list.html">
+                <i class="bi bi-search"></i> 猫を探す
+              </a>
+              <a
+                class="btn btn-outline-dark rounded-pill px-4 py-3 fw-bold"
+                href="pet-care-guide.html"
+              >
+                <i class="bi bi-book"></i> 飼い方を学ぶ
+              </a>
             </div>
+          </div>
+          <div class="col-lg-6 text-center">
+            <img
+              src="https://placehold.co/500x400/10b981/ffffff?text=Happy+Cats"
+              class="hero-image"
+              alt="猫イラスト"
+            />
+          </div>
         </div>
+      </div>
     </div>
 
     <div class="container">
-        <!-- 統計情報 -->
-        <div class="row g-4 mb-5">
-            <div class="col-md-3">
-                <div class="stats-box">
-                    <div class="stats-number">500+</div>
-                    <p class="text-muted mb-0">猫の種類</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="stats-box">
-                    <div class="stats-number">10,000+</div>
-                    <p class="text-muted mb-0">飼育記録</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="stats-box">
-                    <div class="stats-number">3,000+</div>
-                    <p class="text-muted mb-0">Q&A投稿</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="stats-box">
-                    <div class="stats-number">50,000+</div>
-                    <p class="text-muted mb-0">ユーザー数</p>
-                </div>
-            </div>
+      <!-- 統計情報 -->
+      <div class="row g-4 mb-5">
+        <div class="col-md-3">
+          <div class="stats-box">
+            <div class="stats-number">500+</div>
+            <p class="text-muted mb-0">猫の種類</p>
+          </div>
         </div>
+        <div class="col-md-3">
+          <div class="stats-box">
+            <div class="stats-number">10,000+</div>
+            <p class="text-muted mb-0">飼育記録</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="stats-box">
+            <div class="stats-number">3,000+</div>
+            <p class="text-muted mb-0">Q&A投稿</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="stats-box">
+            <div class="stats-number">50,000+</div>
+            <p class="text-muted mb-0">ユーザー数</p>
+          </div>
+        </div>
+      </div>
 
-        <!-- 人気のペット -->
-        <section class="mb-5">
-            <h2 class="text-center fw-bold section-title" style="color: var(--brown-color);">
-                <i class="bi bi-star-fill text-warning"></i> 人気の猫
-            </h2>
-            <p class="text-center text-muted mb-5">多くの方に選ばれている猫たち</p>
+      <!-- 人気のペット -->
+      <section class="mb-5">
+        <h2
+          class="text-center fw-bold section-title"
+          style="color: var(--brown-color)"
+        >
+          <i class="bi bi-star-fill text-warning"></i> 人気の猫
+        </h2>
+        <p class="text-center text-muted mb-5">多くの方に選ばれている猫たち</p>
 
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="pet-card">
-                        <div class="pet-icon" style="height: 100px; width: 100px; border-radius: 50px;">
-                             <img src="./img/スコティッシュフォールド.webp" alt="スコティッシュフォールド" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div class="text-center">
-                            <h4 class="fw-bold mb-3">スコティッシュフォールド</h4>
-                            <p class="text-muted mb-4">
-                                折れた耳が特徴。おとなしく甘えん坊で、丸い顔で見た目が可愛いと人気  。
-                            </p>
-                            <div class="d-flex justify-content-around mb-3">
-                                <div>
-                                    <small class="text-muted d-block">飼いやすさ</small>
-                                    <div class="text-warning">★★★★☆</div>
-                                </div>
-                                <div>
-                                    <small class="text-muted d-block">人気度</small>
-                                    <div class="text-warning">★★★★★</div>
-                                </div>
-                            </div>
-                            <a class="btn btn-outline-success rounded-pill w-100" href="./details/pet-guide-detail-suko.html">
-                                詳細を見る <i class="bi bi-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="pet-card">
+              <div
+                class="pet-icon"
+                style="height: 100px; width: 100px; border-radius: 50px"
+              >
+                <img
+                  src="./img/スコティッシュフォールド.webp"
+                  alt="スコティッシュフォールド"
+                  style="width: 100%; height: 100%; object-fit: cover"
+                />
+              </div>
+              <div class="text-center">
+                <h4 class="fw-bold mb-3">スコティッシュフォールド</h4>
+                <p class="text-muted mb-4">
+                  折れた耳が特徴。おとなしく甘えん坊で、丸い顔で見た目が可愛いと人気
+                  。
+                </p>
+                <div class="d-flex justify-content-around mb-3">
+                  <div>
+                    <small class="text-muted d-block">飼いやすさ</small>
+                    <div class="text-warning">★★★★☆</div>
+                  </div>
+                  <div>
+                    <small class="text-muted d-block">人気度</small>
+                    <div class="text-warning">★★★★★</div>
+                  </div>
                 </div>
-
-                <div class="col-md-4">
-                    <div class="pet-card">
-                        <div class="pet-icon" style="height: 100px; width: 100px; border-radius: 50px;">
-                             <img src="./img/アメリカンショートヘアー.webp" alt="アメリカンショートヘアー" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div class="text-center">
-                            <h4 class="fw-bold mb-3">アメリカンショートヘア</h4>
-                            <p class="text-muted mb-4">
-                                人懐っこく遊び好きな性格。初心者にもおすすめの猫種です。
-                            </p>
-                            <div class="d-flex justify-content-around mb-3">
-                                <div>
-                                    <small class="text-muted d-block">飼いやすさ</small>
-                                    <div class="text-warning">★★★★★</div>
-                                </div>
-                                <div>
-                                    <small class="text-muted d-block">人気度</small>
-                                    <div class="text-warning">★★★★★</div>
-                                </div>
-                            </div>
-                            <a class="btn btn-outline-warning rounded-pill w-100" href="./details/pet-guide-detail-american.html">
-                                詳細を見る <i class="bi bi-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="pet-card">
-                        <div class="pet-icon" style="height: 100px; width: 100px; border-radius: 50px;">
-                             <img src="./img/マンチカン.webp" alt="マンチカン" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div class="text-center">
-                            <h4 class="fw-bold mb-3">マンチカン</h4>
-                            <p class="text-muted mb-4">
-                               短い足がチャームポイント。明るく活発で人なつこい性格が人気。
-                            </p>
-                            <div class="d-flex justify-content-around mb-3">
-                                <div>
-                                    <small class="text-muted d-block">飼いやすさ</small>
-                                    <div class="text-warning">★★★★★</div>
-                                </div>
-                                <div>
-                                    <small class="text-muted d-block">人気度</small>
-                                    <div class="text-warning">★★★★☆</div>
-                                </div>
-                            </div>
-                            <a class="btn btn-outline-info rounded-pill w-100" href="./details/pet-guide-detail-mantikan.html">
-                                詳細を見る <i class="bi bi-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="pet-card">
-                        <div class="pet-icon" style="height: 100px; width: 100px; border-radius: 50px;">
-                             <img src="./img/ノルウェージャンフォレストキャット.webp" alt="ノルウェージャンフォレストキャット" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div class="text-center">
-                            <h4 class="fw-bold mb-3">ノルウェージャンフォレストキャット</h4>
-                            <p class="text-muted mb-4">
-                                大きくてふわふわ。温厚で穏やかな性格で人気急上昇中。
-                            </p>
-                            <div class="d-flex justify-content-around mb-3">
-                                <div>
-                                    <small class="text-muted d-block">飼いやすさ</small>
-                                    <div class="text-warning">★★★★☆</div>
-                                </div>
-                                <div>
-                                    <small class="text-muted d-block">人気度</small>
-                                    <div class="text-warning">★★★★☆</div>
-                                </div>
-                            </div>
-                            <a class="btn rounded-pill w-100" style="border: 2px solid #8b5cf6; color: #8b5cf6;" href="./details/pet-guide-detail-forest.html">
-                                詳細を見る <i class="bi bi-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="pet-card">
-                          <div class="pet-icon" style="height: 100px; width: 100px; border-radius: 50px;">
-                             <img src="./img/ラグドール.webp" alt="ラグドール" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div class="text-center">
-                            <h4 class="fw-bold mb-3">ラグドール</h4>
-                            <p class="text-muted mb-4">
-                                「ぬいぐるみ」のように大人しく、青い目が特徴。穏やかな性格で可愛らしい。
-                            </p>
-                            <div class="d-flex justify-content-around mb-3">
-                                <div>
-                                    <small class="text-muted d-block">飼いやすさ</small>
-                                    <div class="text-warning">★★★★☆</div>
-                                </div>
-                                <div>
-                                    <small class="text-muted d-block">人気度</small>
-                                    <div class="text-warning">★★★☆☆</div>
-                                </div>
-                            </div>
-                            <a class="btn rounded-pill w-100" style="border: 2px solid #14b8a6; color: #14b8a6;" href="./details/pet-guide-detail-ragdoll.html">
-                                詳細を見る <i class="bi bi-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="pet-card">
-                        <div class="pet-icon" style="height: 100px; width: 100px; border-radius: 50px;">
-                             <img src="./img/メインクーン.webp" alt="メインクーン" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div class="text-center">
-                            <h4 class="fw-bold mb-3">メインクーン</h4>
-                            <p class="text-muted mb-4">
-                                世界最大級の猫。賢くて犬のようになつき、大型猫好きに大人気。
-                            </p>
-                            <div class="d-flex justify-content-around mb-3">
-                                <div>
-                                    <small class="text-muted d-block">飼いやすさ</small>
-                                    <div class="text-warning">★★★★☆</div>
-                                </div>
-                                <div>
-                                    <small class="text-muted d-block">人気度</small>
-                                    <div class="text-warning">★★★★☆</div>
-                                </div>
-                            </div>
-                            <a class="btn btn-outline-primary rounded-pill w-100" href="./details/pet-guide-detail-mainecoon.html">
-                                詳細を見る <i class="bi bi-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                <a
+                  class="btn btn-outline-success rounded-pill w-100"
+                  href="./details/pet-guide-detail-suko.html"
+                >
+                  詳細を見る <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
             </div>
-        </section>
+          </div>
 
-        <!-- サービス特徴 -->
-        <section class="mb-5">
-            <h2 class="text-center fw-bold section-title" style="color: var(--brown-color);">
-                <i class="bi bi-check-circle-fill text-success"></i> CatLifeの特徴
-            </h2>
-            <p class="text-center text-muted mb-5">キャットライフを全力でサポート</p>
-
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="bi bi-book"></i>
-                        </div>
-                        <h4 class="fw-bold mb-3">詳しい飼育ガイド</h4>
-                        <p class="text-muted">
-                            初心者にもわかりやすい飼育方法や健康管理の情報を豊富に掲載しています。
-                        </p>
-                    </div>
+          <div class="col-md-4">
+            <div class="pet-card">
+              <div
+                class="pet-icon"
+                style="height: 100px; width: 100px; border-radius: 50px"
+              >
+                <img
+                  src="./img/アメリカンショートヘアー.webp"
+                  alt="アメリカンショートヘアー"
+                  style="width: 100%; height: 100%; object-fit: cover"
+                />
+              </div>
+              <div class="text-center">
+                <h4 class="fw-bold mb-3">アメリカンショートヘア</h4>
+                <p class="text-muted mb-4">
+                  人懐っこく遊び好きな性格。初心者にもおすすめの猫種です。
+                </p>
+                <div class="d-flex justify-content-around mb-3">
+                  <div>
+                    <small class="text-muted d-block">飼いやすさ</small>
+                    <div class="text-warning">★★★★★</div>
+                  </div>
+                  <div>
+                    <small class="text-muted d-block">人気度</small>
+                    <div class="text-warning">★★★★★</div>
+                  </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="bi bi-chat-dots"></i>
-                        </div>
-                        <h4 class="fw-bold mb-3">Q&Aコミュニティ</h4>
-                        <p class="text-muted">
-                            経験豊富な飼い主さんたちがあなたの疑問に答えてくれます。
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="bi bi-journal-text"></i>
-                        </div>
-                        <h4 class="fw-bold mb-3">飼育記録管理</h4>
-                        <p class="text-muted">
-                            キャットの成長や健康状態を記録して、大切な思い出を残せます。
-                        </p>
-                    </div>
-                </div>
+                <a
+                  class="btn btn-outline-warning rounded-pill w-100"
+                  href="./details/pet-guide-detail-american.html"
+                >
+                  詳細を見る <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
             </div>
-        </section>
+          </div>
 
-        <!-- 体型から探す -->
-        <section class="mb-5">
-            <h2 class="text-center fw-bold section-title" style="color: var(--brown-color);">
-                <i class="bi bi-grid-3x3-gap-fill"></i> 体型から探す
-            </h2>
-            <p class="text-center text-muted mb-5">体型を選択</p>
-
-            <div class="row g-3">
-                <div class="col-6 col-md-3">
-                    <a href="pet-guide-list.html" class="text-decoration-none">
-                        <div class="feature-card">
-                            <div class="feature-icon" style="height: 100px; width: 100px; border-radius: 50px; overflow: hidden;">
-                                <img src="./img/コビー.webp" style="width: 100%; height: 100%; object-fit: cover;">
-                            </div>
-
-                            <h5 class="fw-bold" style="color: var(--brown-color);" data-bs-toggle="tooltip" data-bs-placement="right" title="筋肉質でがっしりした体型。四肢や胴が短く太く、顔は丸みを帯びているのが特徴です。">コビータイプ</h5>
-                            <small class="text-muted">120種類</small>
-                        </div>
-                    </a>
+          <div class="col-md-4">
+            <div class="pet-card">
+              <div
+                class="pet-icon"
+                style="height: 100px; width: 100px; border-radius: 50px"
+              >
+                <img
+                  src="./img/マンチカン.webp"
+                  alt="マンチカン"
+                  style="width: 100%; height: 100%; object-fit: cover"
+                />
+              </div>
+              <div class="text-center">
+                <h4 class="fw-bold mb-3">マンチカン</h4>
+                <p class="text-muted mb-4">
+                  短い足がチャームポイント。明るく活発で人なつこい性格が人気。
+                </p>
+                <div class="d-flex justify-content-around mb-3">
+                  <div>
+                    <small class="text-muted d-block">飼いやすさ</small>
+                    <div class="text-warning">★★★★★</div>
+                  </div>
+                  <div>
+                    <small class="text-muted d-block">人気度</small>
+                    <div class="text-warning">★★★★☆</div>
+                  </div>
                 </div>
-                <div class="col-6 col-md-3">
-                    <a href="pet-guide-list.html" class="text-decoration-none">
-                        <div class="feature-card">
-                            <div class="feature-icon" style="height: 100px; width: 100px; border-radius: 50px; overflow: hidden;">
-                                <img src="./img/セミコビー.webp" style="width: 100%; height: 100%; object-fit: cover;">
-                            </div>
-                            <h5 class="fw-bold" style="color: var(--brown-color);" data-bs-toggle="tooltip" data-bs-placement="right" title="コビーよりやや筋肉質で、中型から大型の体格を持つことが特徴です。">セミコビータイプ</h5>
-                            <small class="text-muted">80種類</small>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-6 col-md-3">
-                    <a href="pet-guide-list.html" class="text-decoration-none">
-                        <div class="feature-card">
-                            <div class="feature-icon" style="height: 100px; width: 100px; border-radius: 50px; overflow: hidden;">
-                                <img src="./img/セミフォーリン.webp" style="width: 100%; height: 100%; object-fit: cover;">
-                            </div>
-                            <h5 class="fw-bold" style="color: var(--brown-color);" data-bs-toggle="tooltip" data-bs-placement="right" title="中間的な体型で、長すぎず短すぎないバランスの取れた体型">セミフォーリンタイプ</h5>
-                            <small class="text-muted">45種類</small>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-6 col-md-3">
-                    <a href="pet-guide-list.html" class="text-decoration-none">
-                        <div class="feature-card">
-                            <div class="feature-icon" style="height: 100px; width: 100px; border-radius: 50px; overflow: hidden;">
-                                <img src="./img/フォーリン.webp" style="width: 100%; height: 100%; object-fit: cover;">
-                            </div>
-                            <h5 class="fw-bold" style="color: var(--brown-color);" data-bs-toggle="tooltip" data-bs-placement="right" title=" 引き締まったスリムな体型で、適度な筋肉質を持ち、しなやかで優雅な">フォーリンタイプ</h5>
-                            <small class="text-muted">35種類</small>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-6 col-md-3">
-                    <a href="pet-guide-list.html" class="text-decoration-none">
-                        <div class="feature-card">
-                            <div class="feature-icon" style="height: 100px; width: 100px; border-radius: 50px; overflow: hidden;">
-                                <img src="./img/オリエンタル.webp" style="width: 100%; height: 100%; object-fit: cover;">
-                            </div>
-                            <h5 class="fw-bold" style="color: var(--brown-color);" data-bs-toggle="tooltip" data-bs-placement="right" title="極端に細長い体型。くさび形の頭と長い手足、そして細い尾が特徴です。 ">オリエンタルタイプ</h5>
-                            <small class="text-muted">35種類</small>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-6 col-md-3">
-                    <a href="pet-guide-list.html" class="text-decoration-none">
-                        <div class="feature-card">
-                            <div class="feature-icon" style="height: 100px; width: 100px; border-radius: 50px; overflow: hidden;">
-                                <img src="./img/ロング&サブスタンシャル.webp" style="width: 100%; height: 100%; object-fit: cover;">
-                            </div>
-                            <h5 class="fw-bold" style="color: var(--brown-color);" data-bs-toggle="tooltip" data-bs-placement="right" title="胴体が長く、骨太で筋肉質のがっしり体型。体重が10kgを超えることもある">ロング＆サブスタンシャルタイプ</h5>
-                            <small class="text-muted">35種類</small>
-                        </div>
-                    </a>
-                </div>
+                <a
+                  class="btn btn-outline-info rounded-pill w-100"
+                  href="./details/pet-guide-detail-mantikan.html"
+                >
+                  詳細を見る <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
             </div>
-        </section>
+          </div>
+
+          <div class="col-md-4">
+            <div class="pet-card">
+              <div
+                class="pet-icon"
+                style="height: 100px; width: 100px; border-radius: 50px"
+              >
+                <img
+                  src="./img/ノルウェージャンフォレストキャット.webp"
+                  alt="ノルウェージャンフォレストキャット"
+                  style="width: 100%; height: 100%; object-fit: cover"
+                />
+              </div>
+              <div class="text-center">
+                <h4 class="fw-bold mb-3">ノルウェージャンフォレストキャット</h4>
+                <p class="text-muted mb-4">
+                  大きくてふわふわ。温厚で穏やかな性格で人気急上昇中。
+                </p>
+                <div class="d-flex justify-content-around mb-3">
+                  <div>
+                    <small class="text-muted d-block">飼いやすさ</small>
+                    <div class="text-warning">★★★★☆</div>
+                  </div>
+                  <div>
+                    <small class="text-muted d-block">人気度</small>
+                    <div class="text-warning">★★★★☆</div>
+                  </div>
+                </div>
+                <a
+                  class="btn rounded-pill w-100"
+                  style="border: 2px solid #8b5cf6; color: #8b5cf6"
+                  href="./details/pet-guide-detail-forest.html"
+                >
+                  詳細を見る <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="pet-card">
+              <div
+                class="pet-icon"
+                style="height: 100px; width: 100px; border-radius: 50px"
+              >
+                <img
+                  src="./img/ラグドール.webp"
+                  alt="ラグドール"
+                  style="width: 100%; height: 100%; object-fit: cover"
+                />
+              </div>
+              <div class="text-center">
+                <h4 class="fw-bold mb-3">ラグドール</h4>
+                <p class="text-muted mb-4">
+                  「ぬいぐるみ」のように大人しく、青い目が特徴。穏やかな性格で可愛らしい。
+                </p>
+                <div class="d-flex justify-content-around mb-3">
+                  <div>
+                    <small class="text-muted d-block">飼いやすさ</small>
+                    <div class="text-warning">★★★★☆</div>
+                  </div>
+                  <div>
+                    <small class="text-muted d-block">人気度</small>
+                    <div class="text-warning">★★★☆☆</div>
+                  </div>
+                </div>
+                <a
+                  class="btn rounded-pill w-100"
+                  style="border: 2px solid #14b8a6; color: #14b8a6"
+                  href="./details/pet-guide-detail-ragdoll.html"
+                >
+                  詳細を見る <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="pet-card">
+              <div
+                class="pet-icon"
+                style="height: 100px; width: 100px; border-radius: 50px"
+              >
+                <img
+                  src="./img/メインクーン.webp"
+                  alt="メインクーン"
+                  style="width: 100%; height: 100%; object-fit: cover"
+                />
+              </div>
+              <div class="text-center">
+                <h4 class="fw-bold mb-3">メインクーン</h4>
+                <p class="text-muted mb-4">
+                  世界最大級の猫。賢くて犬のようになつき、大型猫好きに大人気。
+                </p>
+                <div class="d-flex justify-content-around mb-3">
+                  <div>
+                    <small class="text-muted d-block">飼いやすさ</small>
+                    <div class="text-warning">★★★★☆</div>
+                  </div>
+                  <div>
+                    <small class="text-muted d-block">人気度</small>
+                    <div class="text-warning">★★★★☆</div>
+                  </div>
+                </div>
+                <a
+                  class="btn btn-outline-primary rounded-pill w-100"
+                  href="./details/pet-guide-detail-mainecoon.html"
+                >
+                  詳細を見る <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- サービス特徴 -->
+      <section class="mb-5">
+        <h2
+          class="text-center fw-bold section-title"
+          style="color: var(--brown-color)"
+        >
+          <i class="bi bi-check-circle-fill text-success"></i> CatLifeの特徴
+        </h2>
+        <p class="text-center text-muted mb-5">
+          キャットライフを全力でサポート
+        </p>
+
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="bi bi-book"></i>
+              </div>
+              <h4 class="fw-bold mb-3">詳しい飼育ガイド</h4>
+              <p class="text-muted">
+                初心者にもわかりやすい飼育方法や健康管理の情報を豊富に掲載しています。
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="bi bi-chat-dots"></i>
+              </div>
+              <h4 class="fw-bold mb-3">Q&Aコミュニティ</h4>
+              <p class="text-muted">
+                経験豊富な飼い主さんたちがあなたの疑問に答えてくれます。
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="bi bi-journal-text"></i>
+              </div>
+              <h4 class="fw-bold mb-3">飼育記録管理</h4>
+              <p class="text-muted">
+                キャットの成長や健康状態を記録して、大切な思い出を残せます。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 体型から探す -->
+      <section class="mb-5">
+        <h2
+          class="text-center fw-bold section-title"
+          style="color: var(--brown-color)"
+        >
+          <i class="bi bi-grid-3x3-gap-fill"></i> 体型から探す
+        </h2>
+        <p class="text-center text-muted mb-5">体型を選択</p>
+
+        <div class="row g-3">
+          <div class="col-6 col-md-3">
+            <a href="pet-guide-list.html" class="text-decoration-none">
+              <div class="feature-card">
+                <div
+                  class="feature-icon"
+                  style="
+                    height: 100px;
+                    width: 100px;
+                    border-radius: 50px;
+                    overflow: hidden;
+                  "
+                >
+                  <img
+                    src="./img/コビー.webp"
+                    style="width: 100%; height: 100%; object-fit: cover"
+                  />
+                </div>
+
+                <h5
+                  class="fw-bold"
+                  style="color: var(--brown-color)"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="right"
+                  title="筋肉質でがっしりした体型。四肢や胴が短く太く、顔は丸みを帯びているのが特徴です。"
+                >
+                  コビータイプ
+                </h5>
+                <small class="text-muted">120種類</small>
+              </div>
+            </a>
+          </div>
+          <div class="col-6 col-md-3">
+            <a href="pet-guide-list.html" class="text-decoration-none">
+              <div class="feature-card">
+                <div
+                  class="feature-icon"
+                  style="
+                    height: 100px;
+                    width: 100px;
+                    border-radius: 50px;
+                    overflow: hidden;
+                  "
+                >
+                  <img
+                    src="./img/セミコビー.webp"
+                    style="width: 100%; height: 100%; object-fit: cover"
+                  />
+                </div>
+                <h5
+                  class="fw-bold"
+                  style="color: var(--brown-color)"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="right"
+                  title="コビーよりやや筋肉質で、中型から大型の体格を持つことが特徴です。"
+                >
+                  セミコビータイプ
+                </h5>
+                <small class="text-muted">80種類</small>
+              </div>
+            </a>
+          </div>
+          <div class="col-6 col-md-3">
+            <a href="pet-guide-list.html" class="text-decoration-none">
+              <div class="feature-card">
+                <div
+                  class="feature-icon"
+                  style="
+                    height: 100px;
+                    width: 100px;
+                    border-radius: 50px;
+                    overflow: hidden;
+                  "
+                >
+                  <img
+                    src="./img/セミフォーリン.webp"
+                    style="width: 100%; height: 100%; object-fit: cover"
+                  />
+                </div>
+                <h5
+                  class="fw-bold"
+                  style="color: var(--brown-color)"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="right"
+                  title="中間的な体型で、長すぎず短すぎないバランスの取れた体型"
+                >
+                  セミフォーリンタイプ
+                </h5>
+                <small class="text-muted">45種類</small>
+              </div>
+            </a>
+          </div>
+          <div class="col-6 col-md-3">
+            <a href="pet-guide-list.html" class="text-decoration-none">
+              <div class="feature-card">
+                <div
+                  class="feature-icon"
+                  style="
+                    height: 100px;
+                    width: 100px;
+                    border-radius: 50px;
+                    overflow: hidden;
+                  "
+                >
+                  <img
+                    src="./img/フォーリン.webp"
+                    style="width: 100%; height: 100%; object-fit: cover"
+                  />
+                </div>
+                <h5
+                  class="fw-bold"
+                  style="color: var(--brown-color)"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="right"
+                  title=" 引き締まったスリムな体型で、適度な筋肉質を持ち、しなやかで優雅な"
+                >
+                  フォーリンタイプ
+                </h5>
+                <small class="text-muted">35種類</small>
+              </div>
+            </a>
+          </div>
+          <div class="col-6 col-md-3">
+            <a href="pet-guide-list.html" class="text-decoration-none">
+              <div class="feature-card">
+                <div
+                  class="feature-icon"
+                  style="
+                    height: 100px;
+                    width: 100px;
+                    border-radius: 50px;
+                    overflow: hidden;
+                  "
+                >
+                  <img
+                    src="./img/オリエンタル.webp"
+                    style="width: 100%; height: 100%; object-fit: cover"
+                  />
+                </div>
+                <h5
+                  class="fw-bold"
+                  style="color: var(--brown-color)"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="right"
+                  title="極端に細長い体型。くさび形の頭と長い手足、そして細い尾が特徴です。 "
+                >
+                  オリエンタルタイプ
+                </h5>
+                <small class="text-muted">35種類</small>
+              </div>
+            </a>
+          </div>
+          <div class="col-6 col-md-3">
+            <a href="pet-guide-list.html" class="text-decoration-none">
+              <div class="feature-card">
+                <div
+                  class="feature-icon"
+                  style="
+                    height: 100px;
+                    width: 100px;
+                    border-radius: 50px;
+                    overflow: hidden;
+                  "
+                >
+                  <img
+                    src="./img/ロング&サブスタンシャル.webp"
+                    style="width: 100%; height: 100%; object-fit: cover"
+                  />
+                </div>
+                <h5
+                  class="fw-bold"
+                  style="color: var(--brown-color)"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="right"
+                  title="胴体が長く、骨太で筋肉質のがっしり体型。体重が10kgを超えることもある"
+                >
+                  ロング＆サブスタンシャルタイプ
+                </h5>
+                <small class="text-muted">35種類</small>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
     </div>
 
     <!-- フッター -->
     <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <h5 class="fw-bold mb-3">
-                        <i class="bi bi-heart-fill text-danger"></i> CatLife
-                    </h5>
-                    <p>ペットとの幸せな暮らしを応援する情報サイト</p>
-                </div>
-                <div class="col-md-2 mb-4">
-                    <h6 class="fw-bold mb-3">サイト情報</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-white text-decoration-none">About</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">利用規約</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">プライバシー</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-2 mb-4">
-                    <h6 class="fw-bold mb-3">サポート</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-white text-decoration-none">ヘルプ</a></li>
-                        <li><a href="contact.html" class="text-white text-decoration-none">お問い合わせ</a></li>
-                        <li><a href="pet-guide-qa.html" class="text-white text-decoration-none">FAQ</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h6 class="fw-bold mb-3">フォローする</h6>
-                    <div class="d-flex gap-3">
-                        <a href="#" class="text-white fs-4"><i class="bi bi-twitter"></i></a>
-                        <a href="#" class="text-white fs-4"><i class="bi bi-instagram"></i></a>
-                        <a href="#" class="text-white fs-4"><i class="bi bi-youtube"></i></a>
-                        <a href="#" class="text-white fs-4"><i class="bi bi-facebook"></i></a>
-                    </div>
-                </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <h5 class="fw-bold mb-3">
+              <i class="bi bi-heart-fill text-danger"></i> CatLife
+            </h5>
+            <p>ペットとの幸せな暮らしを応援する情報サイト</p>
+          </div>
+          <div class="col-md-2 mb-4">
+            <h6 class="fw-bold mb-3">サイト情報</h6>
+            <ul class="list-unstyled">
+              <li>
+                <a href="#" class="text-white text-decoration-none">About</a>
+              </li>
+              <li>
+                <a href="#" class="text-white text-decoration-none">利用規約</a>
+              </li>
+              <li>
+                <a href="#" class="text-white text-decoration-none"
+                  >プライバシー</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-2 mb-4">
+            <h6 class="fw-bold mb-3">サポート</h6>
+            <ul class="list-unstyled">
+              <li>
+                <a href="#" class="text-white text-decoration-none">ヘルプ</a>
+              </li>
+              <li>
+                <a href="contact.html" class="text-white text-decoration-none"
+                  >お問い合わせ</a
+                >
+              </li>
+              <li>
+                <a
+                  href="pet-guide-qa.html"
+                  class="text-white text-decoration-none"
+                  >FAQ</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4 mb-4">
+            <h6 class="fw-bold mb-3">フォローする</h6>
+            <div class="d-flex gap-3">
+              <a href="#" class="text-white fs-4"
+                ><i class="bi bi-twitter"></i
+              ></a>
+              <a href="#" class="text-white fs-4"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a href="#" class="text-white fs-4"
+                ><i class="bi bi-youtube"></i
+              ></a>
+              <a href="#" class="text-white fs-4"
+                ><i class="bi bi-facebook"></i
+              ></a>
             </div>
-            <hr class="border-light">
-            <p class="text-center mb-0">&copy; 2024 PetLife. All rights reserved.</p>
+          </div>
         </div>
+        <hr class="border-light" />
+        <p class="text-center mb-0">
+          &copy; 2024 PetLife. All rights reserved.
+        </p>
+      </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-        tooltipTriggerList.forEach((el) => {
-            new bootstrap.Tooltip(el);
-        });
+      const tooltipTriggerList = document.querySelectorAll(
+        '[data-bs-toggle="tooltip"]'
+      );
+      tooltipTriggerList.forEach((el) => {
+        new bootstrap.Tooltip(el);
+      });
     </script>
     <script src="./login.js"></script>
-
-</body>
+    <script src="./js/cat-walk.js"></script>
+  </body>
 </html>

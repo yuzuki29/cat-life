@@ -1,0 +1,31 @@
+      #cat {
+        position: fixed;
+        height: 70px;
+
+        pointer-events: none;
+        image-rendering: pixelated;
+        transform-origin: center;
+        transform: scaleX(-1); /* ← 左右反転 */
+      }
+  #enemy {
+  position: fixed;
+  width: 50px;
+  pointer-events: none;
+  z-index: 9999;
+  image-rendering: pixelated;
+}
+
+/* 進化中の発光 */
+.evolve-glow {
+  animation: evolveFlash 0.25s alternate infinite;
+}
+
+/* 強すぎない発光 */
+@keyframes evolveFlash {
+  0% {
+    filter: brightness(1) drop-shadow(0 0 0px rgba(255,255,255,0));
+  }
+  100% {
+    filter: brightness(2.2) drop-shadow(0 0 12px rgba(255,255,200,0.9));
+  }
+}
