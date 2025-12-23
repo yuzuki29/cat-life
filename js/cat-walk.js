@@ -13,6 +13,8 @@ const walkFrames = [
   "./img/cat/cat-walk-2.webp",
   "./img/cat/cat-walk-3.webp",
   "./img/cat/cat-walk-4.webp",
+  // "./img/cat/slime-cat-1.webp",
+  // "./img/cat/slime-cat-2.webp",
 ];
 
 // 第二形態
@@ -29,6 +31,11 @@ const flyFrames2 = [
   "./img/cat/nue-fly-3.webp",
   "./img/cat/nue-fly-4.webp",
 ];
+
+const angelFrames = [
+  "./img/cat/angel-cat-1.webp",
+  "./img/cat/angel-cat-2.webp",
+]
 
 // 待機
 const idleFrames = [
