@@ -315,7 +315,7 @@
                         </div>
                     </div>
 
-                    <button class="btn btn-outline-danger w-100 rounded-pill">
+                    <button class="btn btn-outline-danger w-100 rounded-pill" id="clearFilterBtn">
                         <i class="bi bi-x-circle"></i> クリア
                     </button>
                 </div>
@@ -347,16 +347,20 @@
                 </div>
 
                 <!-- ペットカード -->
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-4">
+                <div class="row g-4" id="petCardContainer">
+                    <div class="col-md-6 col-lg-4 pet-card-wrapper" data-order="1" data-name="スコティッシュフォールド" data-difficulty="4" data-type="all">
 
                         <div class="pet-card">
-                            <img src="https://placehold.co/300x200/10b981/ffffff?text=Scottish Fold" class="pet-img" alt="柴犬">
+                            <img src="https://placehold.co/300x200/10b981/ffffff?text=Scottish Fold" class="pet-img" alt="スコティッシュフォールド">
                             <div class="p-3">
                                 <span class="badge difficulty-badge" style="background: #dcfce7; color: #10b981;">初心者向け</span>
                                 <h5 class="fw-bold mt-2 mb-2" style="color: var(--brown-color);">スコティッシュフォールド</h5>
                                 <p class="text-muted small mb-3">おとなしく甘えん坊</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div>
+                                        <small class="text-muted d-block">飼いやすさ</small>
+                                        <strong style="color: var(--primary-color);">★★★★</strong>
+                                    </div>
                                     <div>
                                         <small class="text-muted d-block">サイズ</small>
                                         <strong style="color: var(--primary-color);">中型</strong>
@@ -373,14 +377,18 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 col-lg-4">
+                    <div class="col-md-6 col-lg-4 pet-card-wrapper" data-order="2" data-name="アメリカンショートヘアー" data-difficulty="4" data-type="all">
                         <div class="pet-card">
-                            <img src="https://placehold.co/300x200/f59e0b/ffffff?text=American Shorthair" class="pet-img" alt="ゴールデンレトリバー">
+                            <img src="https://placehold.co/300x200/f59e0b/ffffff?text=American Shorthair" class="pet-img" alt="アメリカンショートヘアー">
                             <div class="p-3">
                                 <span class="badge difficulty-badge" style="background: #dcfce7; color: #10b981;">初心者向け</span>
                                 <h5 class="fw-bold mt-2 mb-2" style="color: var(--brown-color);">アメリカンショートヘアー</h5>
                                 <p class="text-muted small mb-3">人懐っこく遊び好き</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div>
+                                        <small class="text-muted d-block">飼いやすさ</small>
+                                        <strong style="color: var(--primary-color);">★★★★</strong>
+                                    </div>
                                     <div>
                                         <small class="text-muted d-block">サイズ</small>
                                         <strong style="color: var(--primary-color);">大型</strong>
@@ -397,14 +405,18 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 col-lg-4">
+                    <div class="col-md-6 col-lg-4 pet-card-wrapper" data-order="3" data-name="マンチカン" data-difficulty="5" data-type="all">
                         <div class="pet-card">
-                            <img src="https://placehold.co/300x200/fb923c/ffffff?text=Munchkin" class="pet-img" alt="チワワ">
+                            <img src="https://placehold.co/300x200/fb923c/ffffff?text=Munchkin" class="pet-img" alt="マンチカン">
                             <div class="p-3">
                                 <span class="badge difficulty-badge" style="background: #dcfce7; color: #10b981;">初心者向け</span>
                                 <h5 class="fw-bold mt-2 mb-2" style="color: var(--brown-color);">マンチカン</h5>
                                 <p class="text-muted small mb-3">明るく活発で人なつこい</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div>
+                                        <small class="text-muted d-block">飼いやすさ</small>
+                                        <strong style="color: var(--primary-color);">★★★★★</strong>
+                                    </div>
                                     <div>
                                         <small class="text-muted d-block">サイズ</small>
                                         <strong style="color: var(--primary-color);">小型</strong>
@@ -421,14 +433,18 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 col-lg-4">
+                    <div class="col-md-6 col-lg-4 pet-card-wrapper" data-order="4" data-name="ノルウェージャンフォレストキャット" data-difficulty="4" data-type="all">
                         <div class="pet-card">
-                            <img src="https://placehold.co/300x200/ec4899/ffffff?text=Norwegian Forest Cat" class="pet-img" alt="トイプードル">
+                            <img src="https://placehold.co/300x200/ec4899/ffffff?text=Norwegian Forest Cat" class="pet-img" alt="ノルウェージャンフォレストキャット">
                             <div class="p-3">
                                 <span class="badge difficulty-badge" style="background: #dcfce7; color: #10b981;">初心者向け</span>
                                 <h5 class="fw-bold mt-2 mb-2" style="color: var(--brown-color);">ノルウェージャンフォレストキャット</h5>
                                 <p class="text-muted small mb-3">温厚で穏やかな</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div>
+                                        <small class="text-muted d-block">飼いやすさ</small>
+                                        <strong style="color: var(--primary-color);">★★★★</strong>
+                                    </div>
                                     <div>
                                         <small class="text-muted d-block">サイズ</small>
                                         <strong style="color: var(--primary-color);">小型</strong>
@@ -445,14 +461,18 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 col-lg-4">
+                    <div class="col-md-6 col-lg-4 pet-card-wrapper" data-order="5" data-name="ラグドール" data-difficulty="3" data-type="all">
                         <div class="pet-card">
-                            <img src="https://placehold.co/300x200/8b5cf6/ffffff?text=Ragdoll" class="pet-img" alt="フレンチブルドッグ">
+                            <img src="https://placehold.co/300x200/8b5cf6/ffffff?text=Ragdoll" class="pet-img" alt="ラグドール">
                             <div class="p-3">
                                 <span class="badge difficulty-badge" style="background: #fef3c7; color: #f59e0b;">やや簡単</span>
                                 <h5 class="fw-bold mt-2 mb-2" style="color: var(--brown-color);">ラグドール</h5>
                                 <p class="text-muted small mb-3">穏やかな</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div>
+                                        <small class="text-muted d-block">飼いやすさ</small>
+                                        <strong style="color: var(--primary-color);">★★★</strong>
+                                    </div>
                                     <div>
                                         <small class="text-muted d-block">サイズ</small>
                                         <strong style="color: var(--primary-color);">中型</strong>
@@ -469,14 +489,18 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 col-lg-4">
+                    <div class="col-md-6 col-lg-4 pet-card-wrapper" data-order="6" data-name="メインクイーン" data-difficulty="4" data-type="all">
                         <div class="pet-card">
-                            <img src="https://placehold.co/300x200/06b6d4/ffffff?text=Maine Coon" class="pet-img" alt="ポメラニアン">
+                            <img src="https://placehold.co/300x200/06b6d4/ffffff?text=Maine Coon" class="pet-img" alt="メインクイーン">
                             <div class="p-3">
                                 <span class="badge difficulty-badge" style="background: #dcfce7; color: #10b981;">初心者向け</span>
                                 <h5 class="fw-bold mt-2 mb-2" style="color: var(--brown-color);">メインクイーン</h5>
                                 <p class="text-muted small mb-3">賢くて犬のようになつく</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div>
+                                        <small class="text-muted d-block">飼いやすさ</small>
+                                        <strong style="color: var(--primary-color);">★★★★</strong>
+                                    </div>
                                     <div>
                                         <small class="text-muted d-block">サイズ</small>
                                         <strong style="color: var(--primary-color);">小型</strong>
@@ -493,14 +517,18 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 col-lg-4">
+                    <div class="col-md-6 col-lg-4 pet-card-wrapper" data-order="7" data-name="ベンガル" data-difficulty="2" data-type="all">
                         <div class="pet-card">
-                            <img src="https://placehold.co/300x200/14b8a6/ffffff?text=Bengal" class="pet-img" alt="コーギー">
+                            <img src="https://placehold.co/300x200/14b8a6/ffffff?text=Bengal" class="pet-img" alt="ベンガル">
                             <div class="p-3">
                                 <span class="badge difficulty-badge" style="background: #f1c7fe; color: #970bf5;">中級者</span>
                                 <h5 class="fw-bold mt-2 mb-2" style="color: var(--brown-color);">ベンガル</h5>
                                 <p class="text-muted small mb-3">運動量が多く、遊ぶのが大好き</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div>
+                                        <small class="text-muted d-block">飼いやすさ</small>
+                                        <strong style="color: var(--primary-color);">★★</strong>
+                                    </div>
                                     <div>
                                         <small class="text-muted d-block">サイズ</small>
                                         <strong style="color: var(--primary-color);">中型</strong>
@@ -517,14 +545,18 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 col-lg-4">
+                    <div class="col-md-6 col-lg-4 pet-card-wrapper" data-order="8" data-name="ペルシャ" data-difficulty="5" data-type="all">
                         <div class="pet-card">
-                            <img src="https://placehold.co/300x200/3b82f6/ffffff?text=Persia" class="pet-img" alt="ミニチュアシュナウザー">
+                            <img src="https://placehold.co/300x200/3b82f6/ffffff?text=Persia" class="pet-img" alt="ペルシャ">
                             <div class="p-3">
                                 <span class="badge difficulty-badge" style="background: #dcfce7; color: #10b981;">初心者向け</span>
                                 <h5 class="fw-bold mt-2 mb-2" style="color: var(--brown-color);">ペルシャ</h5>
                                 <p class="text-muted small mb-3">優雅で落ち着いている</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div>
+                                        <small class="text-muted d-block">飼いやすさ</small>
+                                        <strong style="color: var(--primary-color);">★★★★★</strong>
+                                    </div>
                                     <div>
                                         <small class="text-muted d-block">サイズ</small>
                                         <strong style="color: var(--primary-color);">小型</strong>
@@ -541,14 +573,18 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 col-lg-4">
+                    <div class="col-md-6 col-lg-4 pet-card-wrapper" data-order="9" data-name="ロシアンブルー" data-difficulty="3" data-type="all">
                         <div class="pet-card">
-                            <img src="https://placehold.co/300x200/ef4444/ffffff?text=Russian Blue  " class="pet-img" alt="ビーグル">
+                            <img src="https://placehold.co/300x200/ef4444/ffffff?text=Russian Blue  " class="pet-img" alt="ロシアンブルー">
                             <div class="p-3">
                                 <span class="badge difficulty-badge" style="background: #fef3c7; color: #f59e0b;">やや簡単</span>
                                 <h5 class="fw-bold mt-2 mb-2" style="color: var(--brown-color);">ロシアンブルー</h5>
                                 <p class="text-muted small mb-3">物静かで飼いやすい</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div>
+                                        <small class="text-muted d-block">飼いやすさ</small>
+                                        <strong style="color: var(--primary-color);">★★★</strong>
+                                    </div>
                                     <div>
                                         <small class="text-muted d-block">サイズ</small>
                                         <strong style="color: var(--primary-color);">中型</strong>
@@ -567,7 +603,7 @@
                 </div>
 
                 <!-- ページネーション -->
-                <!-- <nav aria-label="ページネーション" class="mt-5">
+                <nav aria-label="ページネーション" class="mt-5">
                     <ul class="pagination justify-content-center">
                         <li class="page-item disabled">
                             <a class="page-link rounded-pill" href="#"><i class="bi bi-chevron-left"></i></a>
@@ -583,7 +619,7 @@
                             <a class="page-link rounded-pill" href="#"><i class="bi bi-chevron-right"></i></a>
                         </li>
                     </ul>
-                </nav> -->
+                </nav>
             </div>
         </div>
     </div>
@@ -630,6 +666,159 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // クリアボタンのイベントリスナー
+        document.getElementById('clearFilterBtn').addEventListener('click', function() {
+            // すべてのチェックボックスをリセット
+            document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            
+            // すべてのラジオボタンをリセット
+            document.querySelectorAll('input[type="radio"]').forEach(radio => {
+                radio.checked = false;
+            });
+        });
+
+        // ページネーション機能
+        document.addEventListener('DOMContentLoaded', function() {
+            const paginationItems = document.querySelectorAll('.pagination li');
+            let currentPage = 1;
+            const totalPages = 14;
+
+            paginationItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const link = this.querySelector('a');
+                    const pageNum = link.textContent.trim();
+
+                    // 前へボタン
+                    if (link.innerHTML.includes('chevron-left')) {
+                        if (currentPage > 1) {
+                            currentPage--;
+                            updatePagination();
+                        }
+                    }
+                    // 次へボタン
+                    else if (link.innerHTML.includes('chevron-right')) {
+                        if (currentPage < totalPages) {
+                            currentPage++;
+                            updatePagination();
+                        }
+                    }
+                    // 数字ページ
+                    else if (!isNaN(pageNum) && pageNum !== '...') {
+                        currentPage = parseInt(pageNum);
+                        updatePagination();
+                    }
+                });
+            });
+
+            function updatePagination() {
+                // すべてのアクティブクラスを削除
+                paginationItems.forEach(item => {
+                    item.classList.remove('active', 'disabled');
+                });
+
+                // 前へボタンの状態更新
+                if (currentPage === 1) {
+                    paginationItems[0].classList.add('disabled');
+                } else {
+                    paginationItems[0].classList.remove('disabled');
+                }
+
+                // ページ番号の更新
+                paginationItems.forEach((item, index) => {
+                    const link = item.querySelector('a');
+                    const text = link.textContent.trim();
+                    
+                    if (!isNaN(text) && text !== '...') {
+                        const pageNum = parseInt(text);
+                        if (pageNum === currentPage) {
+                            item.classList.add('active');
+                        }
+                    }
+                });
+
+                // 次へボタンの状態更新
+                if (currentPage === totalPages) {
+                    paginationItems[paginationItems.length - 1].classList.add('disabled');
+                } else {
+                    paginationItems[paginationItems.length - 1].classList.remove('disabled');
+                }
+
+                // ページトップへスクロール
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            // ソート機能
+            const sortButtons = document.querySelectorAll('.sort-btn');
+            sortButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // アクティブクラスを更新
+                    sortButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const sortType = this.textContent.trim();
+                    sortPets(sortType);
+                });
+            });
+
+            function sortPets(sortType) {
+                const container = document.getElementById('petCardContainer');
+                const cards = Array.from(document.querySelectorAll('.pet-card-wrapper'));
+
+                if (sortType === '人気順') {
+                    // 人気順は元の順序（data-order属性）でソート
+                    cards.sort((a, b) => {
+                        return parseInt(a.getAttribute('data-order')) - parseInt(b.getAttribute('data-order'));
+                    });
+                } else if (sortType === '名前順') {
+                    // 名前でソート
+                    cards.sort((a, b) => {
+                        const nameA = a.getAttribute('data-name');
+                        const nameB = b.getAttribute('data-name');
+                        return nameA.localeCompare(nameB, 'ja');
+                    });
+                } else if (sortType === '飼いやすさ順') {
+                    // 飼いやすさでソート（高い数値が飼いやすい）
+                    cards.sort((a, b) => {
+                        return parseInt(b.getAttribute('data-difficulty')) - parseInt(a.getAttribute('data-difficulty'));
+                    });
+                }
+
+                // DOMに再挿入
+                cards.forEach(card => {
+                    container.appendChild(card);
+                });
+            }
+
+            // カテゴリフィルター機能
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // アクティブクラスを更新
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const selectedType = this.textContent.trim();
+                    filterByCategory(selectedType);
+                });
+            });
+
+            function filterByCategory(selectedType) {
+                const cards = document.querySelectorAll('.pet-card-wrapper');
+                cards.forEach(card => {
+                    if (selectedType === 'すべて') {
+                        card.style.display = '';
+                    } else {
+                        // すべてのカードを表示（実際にはタイプを判定して表示非表示を変える）
+                        card.style.display = '';
+                    }
+                });
+            }
+        });
+    </script>
     <script src="./js/login.js"></script>
     <script src="./js/cat-walk.js"></script>
 </body>
