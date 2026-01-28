@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PetLife - 飼育記録を投稿</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="img/ファビコン.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/cat.css" />
     <style>
         :root {
             --primary-color: #10b981;
@@ -14,61 +15,60 @@
             --accent-color: #fb923c;
             --brown-color: #78350f;
         }
-
+        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #fef3c7;
         }
-
+        
         .navbar {
             background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-
+        
         .navbar-brand {
             font-weight: bold;
             color: var(--primary-color) !important;
             font-size: 1.5rem;
         }
-
+        
         .nav-link {
             color: var(--brown-color) !important;
             font-weight: 500;
             margin: 0 10px;
         }
-
-        .nav-link:hover,
-        .nav-link.active {
+        
+        .nav-link:hover, .nav-link.active {
             color: var(--primary-color) !important;
         }
-
+        
         .page-header {
             background: linear-gradient(135deg, #dcfce7 0%, #fed7aa 100%);
             padding: 60px 0;
             border-radius: 0 0 50px 50px;
             margin-bottom: 40px;
         }
-
+        
         .form-container {
             background: white;
             border-radius: 30px;
             padding: 40px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             margin-bottom: 30px;
         }
-
+        
         .form-section {
             margin-bottom: 35px;
             padding-bottom: 35px;
             border-bottom: 2px solid #f3f4f6;
         }
-
+        
         .form-section:last-child {
             border-bottom: none;
             margin-bottom: 0;
             padding-bottom: 0;
         }
-
+        
         .section-title {
             color: var(--brown-color);
             font-weight: 700;
@@ -78,60 +78,58 @@
             align-items: center;
             gap: 10px;
         }
-
+        
         .section-title i {
             color: var(--primary-color);
         }
-
+        
         .form-label {
             font-weight: 600;
             color: var(--brown-color);
             margin-bottom: 8px;
         }
-
+        
         .required-mark {
             color: #ef4444;
             margin-left: 3px;
         }
-
-        .form-control,
-        .form-select {
+        
+        .form-control, .form-select {
             border: 2px solid #e5e7eb;
             border-radius: 15px;
             padding: 12px 18px;
             transition: all 0.3s ease;
         }
-
-        .form-control:focus,
-        .form-select:focus {
+        
+        .form-control:focus, .form-select:focus {
             border-color: var(--primary-color);
             box-shadow: 0 0 0 0.2rem rgba(16, 185, 129, 0.15);
         }
-
+        
         .form-control::placeholder {
             color: #9ca3af;
         }
-
+        
         textarea.form-control {
             min-height: 120px;
             resize: vertical;
         }
-
+        
         .category-options {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 15px;
         }
-
+        
         .category-option {
             position: relative;
         }
-
+        
         .category-option input[type="radio"] {
             position: absolute;
             opacity: 0;
         }
-
+        
         .category-label {
             display: flex;
             flex-direction: column;
@@ -145,23 +143,23 @@
             background: white;
             text-align: center;
         }
-
+        
         .category-label i {
             font-size: 2.5rem;
             margin-bottom: 10px;
         }
-
+        
         .category-label:hover {
             border-color: var(--primary-color);
             background: rgba(16, 185, 129, 0.05);
         }
-
-        .category-option input[type="radio"]:checked+.category-label {
+        
+        .category-option input[type="radio"]:checked + .category-label {
             border-color: var(--primary-color);
             background: linear-gradient(135deg, #dcfce7, #fed7aa);
             font-weight: 700;
         }
-
+        
         .file-upload-area {
             border: 2px dashed #e5e7eb;
             border-radius: 20px;
@@ -171,51 +169,51 @@
             transition: all 0.3s ease;
             background: #fafafa;
         }
-
+        
         .file-upload-area:hover {
             border-color: var(--primary-color);
             background: rgba(16, 185, 129, 0.05);
         }
-
+        
         .file-upload-area i {
             font-size: 3rem;
             color: var(--primary-color);
             margin-bottom: 15px;
         }
-
+        
         .upload-text {
             color: var(--brown-color);
             font-weight: 600;
             margin-bottom: 5px;
         }
-
+        
         .upload-hint {
             color: #9ca3af;
             font-size: 0.9rem;
         }
-
+        
         .image-preview-container {
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
             margin-top: 20px;
         }
-
+        
         .image-preview {
             position: relative;
             width: 120px;
             height: 120px;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-
+        
         .image-preview img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-
+        
         .image-preview .remove-btn {
             position: absolute;
             top: 5px;
@@ -232,21 +230,21 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-
+        
         .image-preview .remove-btn:hover {
             background: #dc2626;
         }
-
+        
         .date-input-group {
             display: flex;
             gap: 10px;
             align-items: center;
         }
-
+        
         .date-input-group input {
             flex: 1;
         }
-
+        
         .quick-date-btn {
             padding: 10px 20px;
             border: 2px solid var(--primary-color);
@@ -257,12 +255,12 @@
             transition: all 0.3s ease;
             white-space: nowrap;
         }
-
+        
         .quick-date-btn:hover {
             background: var(--primary-color);
             color: white;
         }
-
+        
         .btn-submit {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             border: none;
@@ -273,12 +271,12 @@
             font-size: 1.2rem;
             transition: all 0.3s ease;
         }
-
+        
         .btn-submit:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
         }
-
+        
         .btn-draft {
             background: white;
             border: 2px solid var(--primary-color);
@@ -289,41 +287,41 @@
             font-size: 1.2rem;
             transition: all 0.3s ease;
         }
-
+        
         .btn-draft:hover {
             background: rgba(16, 185, 129, 0.1);
         }
-
+        
         .help-text {
             color: #6b7280;
             font-size: 0.9rem;
             margin-top: 5px;
         }
-
+        
         .info-card {
             background: linear-gradient(135deg, #dcfce7, #fed7aa);
             border-radius: 20px;
             padding: 25px;
             margin-bottom: 30px;
         }
-
+        
         .info-card-title {
             font-weight: 700;
             color: var(--brown-color);
             margin-bottom: 15px;
             font-size: 1.1rem;
         }
-
+        
         .info-card ul {
             margin-bottom: 0;
             padding-left: 20px;
         }
-
+        
         .info-card li {
             color: var(--brown-color);
             margin-bottom: 8px;
         }
-
+        
         footer {
             background-color: var(--brown-color);
             color: white;
@@ -331,7 +329,7 @@
             margin-top: 80px;
             border-radius: 50px 50px 0 0;
         }
-
+        
         /* Toast通知スタイル */
         .toast-container {
             position: fixed;
@@ -339,15 +337,15 @@
             right: 20px;
             z-index: 9999;
         }
-
+        
         .toast-custom {
             background: white;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             border: none;
             min-width: 350px;
         }
-
+        
         .toast-custom .toast-header {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
@@ -355,31 +353,30 @@
             border: none;
             padding: 15px 20px;
         }
-
+        
         .toast-custom .toast-body {
             padding: 20px;
             color: var(--brown-color);
         }
-
+        
         .mood-selector {
             display: flex;
             gap: 15px;
             justify-content: center;
         }
-
+        
         .mood-option {
             cursor: pointer;
             font-size: 2.5rem;
             opacity: 0.3;
             transition: all 0.3s ease;
         }
-
-        .mood-option:hover,
-        .mood-option.active {
+        
+        .mood-option:hover, .mood-option.active {
             opacity: 1;
             transform: scale(1.2);
         }
-
+        
         .tag-input-container {
             display: flex;
             flex-wrap: wrap;
@@ -389,7 +386,7 @@
             border-radius: 15px;
             min-height: 50px;
         }
-
+        
         .tag-item {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
@@ -401,10 +398,10 @@
             font-size: 0.9rem;
             font-weight: 600;
         }
-
+        
         .tag-item .remove-tag {
             cursor: pointer;
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255,255,255,0.3);
             border-radius: 50%;
             width: 18px;
             height: 18px;
@@ -413,11 +410,11 @@
             justify-content: center;
             font-size: 0.8rem;
         }
-
+        
         .tag-item .remove-tag:hover {
-            background: rgba(255, 255, 255, 0.5);
+            background: rgba(255,255,255,0.5);
         }
-
+        
         .tag-input-field {
             flex: 1;
             border: none;
@@ -425,14 +422,14 @@
             min-width: 100px;
             padding: 5px;
         }
-
+        
         .suggested-tags {
             display: flex;
             gap: 8px;
             flex-wrap: wrap;
             margin-top: 10px;
         }
-
+        
         .suggested-tag {
             background: white;
             border: 2px solid #e5e7eb;
@@ -443,19 +440,19 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-
+        
         .suggested-tag:hover {
             border-color: var(--primary-color);
             background: rgba(16, 185, 129, 0.1);
         }
     </style>
 </head>
-
 <body>
+    <img id="cat" src="./img/cat/cat-walk-1.webp" />
     <!-- ナビゲーションバー -->
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="index.html">
                 <i class="bi bi-heart-fill text-danger"></i> PetLife
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -464,22 +461,22 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">ホーム</a>
+                        <a class="nav-link" href="index.html">ホーム</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">ペット図鑑</a>
+                        <a class="nav-link" href="#pet-guide-liststretched-link">ペット図鑑</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">飼い方ガイド</a>
+                        <a class="nav-link" href="pet-care-guide.html">飼い方ガイド</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Q&A</a>
+                        <a class="nav-link" href="pet-guide-qa.html">Q&A</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">飼育記録</a>
+                        <a class="nav-link active" href="pet-guide-record.html">飼育記録</a>
                     </li>
                 </ul>
-                <button class="btn btn-outline-success ms-3 rounded-pill fw-bold">
+                <button class="btn btn-outline-success ms-3 rounded-pill fw-bold" id="auth-btn">
                     <i class="bi bi-person-circle"></i> ログイン
                 </button>
             </div>
@@ -848,7 +845,7 @@
                     <h6 class="fw-bold mb-3">サポート</h6>
                     <ul class="list-unstyled">
                         <li><a href="#" class="text-white text-decoration-none">ヘルプ</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">お問い合わせ</a></li>
+                        <li><a href="contact.html" class="text-white text-decoration-none">お問い合わせ</a></li>
                         <li><a href="#" class="text-white text-decoration-none">FAQ</a></li>
                     </ul>
                 </div>
@@ -1089,6 +1086,8 @@
             fileInput.dispatchEvent(event);
         });
     </script>
+    <script src="./js/login.js"></script>
+    <script src="./js/cat-walk.js"></script>
 </body>
 
 </html>
