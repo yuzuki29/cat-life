@@ -1,13 +1,16 @@
-      #cat {
-        position: fixed;
-        height: 70px;
+/* レスポンシブ対応 - モバイルファースト */
 
-        pointer-events: none;
-        image-rendering: pixelated;
-        transform-origin: center;
-        transform: scaleX(-1); /* ← 左右反転 */
-      }
-  #enemy {
+/* 基本スタイル */
+#cat {
+  position: fixed;
+  height: 70px;
+  pointer-events: none;
+  image-rendering: pixelated;
+  transform-origin: center;
+  transform: scaleX(-1);
+}
+
+#enemy {
   position: fixed;
   width: 50px;
   pointer-events: none;
@@ -27,5 +30,264 @@
   }
   100% {
     filter: brightness(2.2) drop-shadow(0 0 12px rgba(255,255,200,0.9));
+  }
+}
+
+/* === レスポンシブメディアクエリ === */
+
+/* 超小型スクリーン (320px～375px) */
+@media (max-width: 375px) {
+  body {
+    font-size: 14px;
+  }
+  
+  .navbar-brand {
+    font-size: 1.2rem !important;
+  }
+  
+  .nav-link {
+    margin: 0 5px !important;
+    font-size: 0.9rem;
+  }
+  
+  h1 {
+    font-size: 1.5rem !important;
+  }
+  
+  h2 {
+    font-size: 1.3rem !important;
+  }
+  
+  .display-3 {
+    font-size: 2rem !important;
+  }
+  
+  .pet-card,
+  .feature-card,
+  .category-card {
+    padding: 15px !important;
+  }
+  
+  .btn-primary-custom {
+    padding: 10px 20px !important;
+    font-size: 0.95rem !important;
+  }
+  
+  #cat {
+    height: 50px;
+  }
+  
+  #enemy {
+    width: 35px;
+  }
+}
+
+/* 小型スクリーン (376px～576px) */
+@media (max-width: 576px) {
+  body {
+    font-size: 15px;
+  }
+  
+  .navbar {
+    padding: 0.5rem 0;
+  }
+  
+  .navbar-brand {
+    font-size: 1.3rem !important;
+  }
+  
+  .nav-link {
+    margin: 5px 8px !important;
+    font-size: 0.95rem;
+  }
+  
+  .hero-section {
+    padding: 40px 0 !important;
+    border-radius: 0 0 30px 30px;
+    margin-bottom: 30px;
+  }
+  
+  .display-3 {
+    font-size: 2rem !important;
+  }
+  
+  .lead {
+    font-size: 1rem;
+  }
+  
+  .d-flex.gap-3 {
+    flex-direction: column;
+  }
+  
+  .d-flex.gap-3 .btn {
+    width: 100% !important;
+    margin-bottom: 10px;
+  }
+  
+  .stats-box {
+    padding: 20px !important;
+    margin-bottom: 15px;
+  }
+  
+  .stats-number {
+    font-size: 2rem !important;
+  }
+  
+  .pet-card,
+  .feature-card,
+  .category-card,
+  .filter-sidebar {
+    padding: 20px !important;
+    margin-bottom: 20px;
+  }
+  
+  .pet-img {
+    height: 150px;
+  }
+  
+  .section-title {
+    font-size: 1.5rem !important;
+    margin-bottom: 30px !important;
+  }
+  
+  .row.g-4 {
+    gap: 1.5rem !important;
+  }
+  
+  footer {
+    padding: 30px 0 !important;
+    margin-top: 40px !important;
+  }
+  
+  footer .col-md-4,
+  footer .col-md-2 {
+    margin-bottom: 30px;
+  }
+  
+  .filter-sidebar {
+    position: relative !important;
+    top: auto !important;
+    margin-bottom: 30px;
+  }
+  
+  .pet-guide-form,
+  .auth-card,
+  .contact-card {
+    padding: 25px !important;
+    margin: 20px auto !important;
+  }
+}
+
+/* タブレット (577px～768px) */
+@media (min-width: 577px) and (max-width: 768px) {
+  .navbar-brand {
+    font-size: 1.4rem !important;
+  }
+  
+  .nav-link {
+    margin: 0 8px !important;
+  }
+  
+  .hero-section {
+    padding: 50px 0 !important;
+  }
+  
+  .display-3 {
+    font-size: 2.5rem !important;
+  }
+  
+  .pet-card {
+    padding: 25px !important;
+  }
+  
+  .stats-box {
+    padding: 25px !important;
+  }
+  
+  .section-title {
+    font-size: 1.8rem !important;
+  }
+  
+  .pet-img {
+    height: 180px;
+  }
+}
+
+/* 大型タブレット/小型デスクトップ (769px～992px) */
+@media (min-width: 769px) and (max-width: 992px) {
+  .nav-link {
+    margin: 0 8px !important;
+  }
+  
+  .hero-section {
+    padding: 60px 0 !important;
+  }
+  
+  .pet-card,
+  .feature-card {
+    padding: 28px !important;
+  }
+  
+  .section-title {
+    font-size: 2rem !important;
+  }
+  
+  .pet-img {
+    height: 200px;
+  }
+}
+
+/* デスクトップ (993px以上) */
+@media (min-width: 993px) {
+  .nav-link {
+    margin: 0 10px !important;
+  }
+  
+  .hero-section {
+    padding: 80px 0 !important;
+  }
+  
+  .pet-card,
+  .feature-card {
+    padding: 30px !important;
+  }
+}
+
+/* ===  汎用レスポンシブ調整 === */
+
+/* 画像のレスポンシブ対応 */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ビデオのレスポンシブ対応 */
+iframe,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* テーブルのレスポンシブ対応 */
+table {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* 横スクロール防止 */
+body {
+  overflow-x: hidden;
+}
+
+/* 小型スクリーンでのコンテナ調整 */
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding-left: 12px;
+    padding-right: 12px;
   }
 }

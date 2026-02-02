@@ -329,6 +329,101 @@
             margin-top: 15px;
         }
         
+        /* === レスポンシブ対応 === */
+        @media (max-width: 576px) {
+            .display-4 {
+                font-size: 1.8rem !important;
+            }
+            
+            .page-header {
+                padding: 40px 0 !important;
+            }
+            
+            .search-box {
+                margin-bottom: 20px;
+            }
+            
+            .search-box input,
+            .search-box button {
+                padding: 10px 15px !important;
+                font-size: 0.95rem;
+            }
+            
+            .category-tabs {
+                flex-wrap: wrap;
+            }
+            
+            .category-tabs .nav-link {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+                margin: 3px;
+            }
+            
+            .col-lg-9,
+            .col-lg-3 {
+                flex-basis: 100%;
+                max-width: 100%;
+            }
+            
+            .sidebar-card {
+                padding: 20px !important;
+                margin-bottom: 20px;
+            }
+            
+            .stat-card .card-body {
+                padding: 1rem !important;
+            }
+            
+            .stat-card h3 {
+                font-size: 1.8rem !important;
+            }
+            
+            .accordion-button {
+                font-size: 1rem;
+                padding: 15px 20px;
+            }
+            
+            .accordion-body {
+                padding: 20px;
+            }
+            
+            .popular-question-card {
+                padding: 20px !important;
+            }
+            
+            .btn-post-question {
+                padding: 12px 30px !important;
+                font-size: 1rem !important;
+            }
+            
+            footer {
+                padding: 30px 0 !important;
+            }
+            
+            footer .col-md-4,
+            footer .col-md-2 {
+                margin-bottom: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .display-4 {
+                font-size: 2rem !important;
+            }
+            
+            .page-header {
+                padding: 50px 0 !important;
+            }
+            
+            .sidebar-card {
+                padding: 25px !important;
+            }
+            
+            .popular-question-card {
+                padding: 25px !important;
+            }
+        }
+        
         .helpful-btn {
             background-color: transparent;
             border: 2px solid var(--primary-color);

@@ -359,6 +359,107 @@
             color: var(--brown-color);
         }
         
+        /* === レスポンシブ対応 === */
+        @media (max-width: 576px) {
+            .display-4 {
+                font-size: 1.8rem !important;
+            }
+            
+            .page-header {
+                padding: 40px 0 !important;
+            }
+            
+            .form-container {
+                padding: 20px !important;
+            }
+            
+            .section-title {
+                font-size: 1.1rem;
+            }
+            
+            .form-label {
+                font-size: 0.95rem;
+            }
+            
+            .form-control,
+            .form-select {
+                padding: 10px 15px !important;
+                font-size: 1rem;
+            }
+            
+            .category-option {
+                flex-basis: calc(50% - 5px) !important;
+            }
+            
+            .file-upload-area {
+                padding: 30px !important;
+            }
+            
+            .file-upload-area i {
+                font-size: 2.5rem;
+            }
+            
+            .image-preview {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .date-input-group {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .date-input-group input,
+            .quick-date-btn {
+                width: 100%;
+            }
+            
+            .btn-submit,
+            .btn-draft {
+                width: 100% !important;
+                padding: 12px 30px !important;
+                font-size: 1rem !important;
+                margin-bottom: 10px;
+            }
+            
+            .info-card {
+                padding: 20px;
+            }
+            
+            .toast-container {
+                top: 80px;
+                right: 10px;
+                left: 10px;
+            }
+            
+            .toast-custom {
+                min-width: auto !important;
+            }
+            
+            footer {
+                padding: 30px 0 !important;
+            }
+            
+            footer .col-md-4,
+            footer .col-md-2 {
+                margin-bottom: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .display-4 {
+                font-size: 2rem !important;
+            }
+            
+            .page-header {
+                padding: 50px 0 !important;
+            }
+            
+            .form-container {
+                padding: 30px !important;
+            }
+        }
+        
         .mood-selector {
             display: flex;
             gap: 15px;
